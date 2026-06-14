@@ -107,186 +107,77 @@
             },
         }
     </script>
-    <style>
-        body {
-            background-color: #07070A;
-            color: #e5e1e6;
-            overflow-x: hidden;
-        }
-
-        .glass-card {
-            background: rgba(19, 19, 23, 0.7);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .service-card:hover {
-            border-color: #8B5CF6;
-            box-shadow: 0 0 40px rgba(139, 92, 246, 0.2), inset 0 0 15px rgba(139, 92, 246, 0.1);
-            transform: translateY(-8px) scale(1.01);
-        }
-
-        .grid-overlay {
-            background-image: linear-gradient(rgba(79, 127, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 127, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        .glow-line {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #8B5CF6, #4F7FFF, transparent);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glow-line::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: move-glow 4s infinite linear;
-        }
-
-        @keyframes move-glow {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
+    <!-- Three.js import map for ES module background (matches index.html) -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
             }
         }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .liquid-mesh {
-            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 70%);
-            filter: blur(50px);
-        }
-
-        .neon-text-blue {
-            text-shadow: 0 0 15px rgba(79, 127, 255, 0.5);
-        }
-
-        .neon-text-purple {
-            text-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #4F7FFF, #8B5CF6);
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 35px rgba(139, 92, 246, 0.5);
-            transform: scale(1.05);
-        }
-
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
+    </script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body class="antialiased">
     <!-- Full Page 3D Background -->
+    <div id="canvas-container">
+      <canvas id="canvas-stars"></canvas>
+      <canvas id="canvas-torus"></canvas>
+    </div>
     <div class="fixed inset-0 z-[-1] pointer-events-none">
-        <!-- STITCH_THREEJS_START:ANIMATION_19 class="absolute inset-0 w-full h-full opacity-70" -->
-        <div class="absolute inset-0 w-full h-full opacity-70" style="display:block;">
-            <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
-            <div id="threejs-container-ANIMATION_19" style="width:100%;height:100%"></div>
-            <!-- Three.js animation moved to services.js -->
-        </div>
-        <!-- STITCH_THREEJS_END:ANIMATION_19 -->
         <div class="absolute inset-0 bg-gradient-to-b from-bg-deep/20 via-bg-deep/70 to-bg-deep"></div>
         <div class="absolute inset-0 grid-overlay opacity-20"></div>
     </div>
-    <!-- Navigation -->
-    <header class="fixed top-0 w-full z-50 bg-bg-deep/60 backdrop-blur-2xl border-b border-glass-border">
-        <div
-            class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-            <div
-                class="font-display-lg-mobile md:text-[28px] font-black text-white tracking-tighter flex items-center gap-2">
-                <span
-                    class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center">
-                    <span class="material-symbols-outlined text-white text-xl">rocket_launch</span>
-                </span>
-                EliteNova AI
+        <!-- Navigation -->
+        <header id="main-header">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="./assets/ELITENOVA-LOGO.jpeg" alt="Elitenova logo" class="logo-mark">
+                    <span class="logo-wordmark">ELITENOVA</span>
+                </a>
+        
+                <div class="nav-pill">
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="services.html" class="nav-link active">Services</a></li>
+                        <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    </ul>
+                </div>
+        
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <a href="#cta" class="nav-cta">Request a Demo</a>
+                    <div class="menu-toggle" id="menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
-            <nav class="hidden md:flex gap-10 items-center">
-                <a class="font-label-md text-label-md text-on-surface-variant hover:text-white transition-colors"
-                    href="#">Solutions</a>
-                <a class="font-label-md text-label-md text-accent-blue font-bold border-b-2 border-accent-blue pb-1"
-                    href="#">Services</a>
-                <a class="font-label-md text-label-md text-on-surface-variant hover:text-white transition-colors"
-                    href="#">Performance</a>
-                <a class="font-label-md text-label-md text-on-surface-variant hover:text-white transition-colors"
-                    href="#">Agency</a>
-            </nav>
-            <button class="btn-primary text-white font-label-md py-3 px-8 rounded-lg">
-                Deploy Campaign
-            </button>
-        </div>
-    </header>
+        </header>
     <main class="pt-32">
-        <!-- Hero Section -->
-        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div class="reveal active">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue font-label-sm mb-6">
-                        <span class="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse"></span>
-                        Next-Gen Automation
-                    </div>
-                    <h1 class="font-display-lg-mobile md:font-headline-xl text-white mb-8 leading-tight tracking-tight">
-                        AI Automation Services Built For <span
-                            class="bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">Modern
-                            Businesses</span>
-                    </h1>
-                    <p class="font-body-lg text-body-lg text-text-secondary mb-12 max-w-xl leading-relaxed">
-                        We help businesses automate customer communication, lead generation, customer support, and sales
-                        processes using practical AI-powered systems that save time and increase revenue.
-                    </p>
-                    <div class="flex flex-wrap gap-5">
-                        <button class="btn-primary text-white font-label-md px-10 py-4 rounded-xl">
-                            Book A Strategy Call
-                        </button>
-                        <button
-                            class="glass-card font-label-md px-10 py-4 rounded-xl text-white hover:bg-white/5 transition-all">
-                            Explore Solutions
-                        </button>
-                    </div>
-                </div>
-                <div class="relative reveal active" style="transition-delay: 200ms;">
-                    <div
-                        class="relative z-10 w-full aspect-[4/3] rounded-3xl overflow-hidden glass-card p-1 border-white/10 group">
-                        <img alt="AI Network"
-                            class="w-full h-full object-cover rounded-[1.4rem] opacity-70 group-hover:opacity-90 transition-opacity duration-700"
-                            data-alt="A highly complex and futuristic 3D visualization of a neural network grid in space. The structure consists of glowing nodes connected by fine, electric blue light filaments that pulse with energy. The background is a deep, obsidian void, creating a stark contrast that emphasizes the technological advancement and interconnected nature of the AI system. The scene is illuminated by soft, atmospheric glow and cinematic light leaks in shades of purple and blue."
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuChACXt6Kvj7rzgVnveVK2QsQH9Cfq57Y4WmHoJI-QewxnI3hHCu-NFVS5uyS5q_jc92JOOGdNgLEje7NE0V8subviJ9bfeDpjRoV5FCBfAafodIDnjUYSbTLaNBMp0q5XaGfnctVKfSk5yctAbYUwV9WEJldhDbXrEBOYBvSvHharMs0v3ajOzi9nuaI8Jv2i5z-wT4jFlAFKirf2iLuRLbggYTmBcwf5R54xqfDPwTYAzIyfgpAZn94mmIXQKECkGur91BWYjOUY" />
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-bg-deep/90 via-transparent to-transparent pointer-events-none">
-                        </div>
-                    </div>
-                    <div class="absolute -top-16 -right-16 w-64 h-64 bg-accent-blue/20 blur-[100px] rounded-full"></div>
-                    <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-accent-purple/20 blur-[100px] rounded-full">
-                    </div>
-                </div>
-            </div>
+        <!-- Hero Section (unified with site) -->
+        <section class="hero">
+          <div class="hero-visual" aria-hidden="true">
+            <span class="hero-glow hero-glow-back"></span>
+            <span class="hero-glow hero-glow-core"></span>
+            <span class="hero-glow hero-glow-arc"></span>
+          </div>
+
+          <div class="badge-capsule">
+            <span class="badge-pill">New</span>
+            <span class="badge-text">Automated Lead Generation</span>
+          </div>
+          
+          <h1 class="hero-title">Industries We Scale — <br><span style="color: #8437bf;">Tailored AI Automation</span></h1>
+          
+          <p class="hero-subtitle">Tailored automation for diverse business models with smooth, scroll-driven reveals across the page.</p>
+          
+          <div class="hero-actions">
+            <a href="#features" class="btn btn-primary">Explore Services</a>
+            <a href="#cta" class="btn btn-secondary">Book a call</a>
+          </div>
         </section>
         <!-- Introduction Section -->
         <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40 reveal">
@@ -552,7 +443,7 @@
                     <h2 class="font-headline-lg text-headline-xl text-white mb-4">Industries We Scale</h2>
                     <p class="text-text-secondary text-lg">Tailored automation for diverse business models.</p>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                     <div class="glass-card p-8 rounded-2xl text-center group reveal service-card"
                         style="transition-delay: 50ms;">
                         <span
@@ -718,27 +609,7 @@
                 </div>
             </div>
         </section>
-        <!-- Mission Section -->
-        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40 reveal">
-            <div
-                class="relative bg-gradient-to-br from-bg-surface to-bg-deep rounded-[3.5rem] p-16 md:p-28 overflow-hidden border border-white/10 group">
-                <div
-                    class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(139,92,246,0.1),transparent_50%)]">
-                </div>
-                <div class="absolute inset-0 liquid-mesh opacity-10 group-hover:opacity-20 transition-opacity"></div>
-                <div class="relative z-10 text-center">
-                    <span class="font-label-md text-accent-blue tracking-widest uppercase mb-6 block font-bold">Our
-                        Goal</span>
-                    <h2 class="font-display-lg-mobile md:font-headline-xl text-white mb-10 tracking-tight">Engineering
-                        Measurable Success</h2>
-                    <p
-                        class="font-body-lg text-body-lg text-on-surface-variant max-w-4xl mx-auto leading-relaxed text-xl">
-                        To help businesses save time, reduce manual work, improve customer experience, and increase
-                        sales through practical AI automation solutions that deliver measurable results.
-                    </p>
-                </div>
-            </div>
-        </section>
+        <!-- Mission Section removed as requested -->
         <!-- Final CTA -->
         <section class="relative py-48 overflow-hidden border-t border-glass-border">
             <div class="absolute inset-0 z-[-1]">
@@ -793,6 +664,8 @@
             </div>
         </div>
     </footer>
+    <script type="module" src="./background3d.js"></script>
+    <script src="main.js"></script>
     <script src="services.js"></script>
 </body>
 

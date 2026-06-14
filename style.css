@@ -86,7 +86,7 @@ html, body {
 /* Header & Navbar */
 header {
   position: fixed;
-  top: 0;
+  top: 10px;
   left: 0;
   width: 100%;
   height: 80px;
@@ -412,6 +412,18 @@ header.scrolled {
   color: rgba(255, 255, 255, 0.6);
   max-width: 600px;
   margin-bottom: 40px;
+}
+
+/* Scroll reveal (framer-like smooth motion) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px) scale(0.995);
+  transition: opacity 680ms cubic-bezier(0.16, 1, 0.3, 1), transform 780ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.active {
+  opacity: 1;
+  transform: none;
 }
 
 .hero-actions {
