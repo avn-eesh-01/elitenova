@@ -86,19 +86,25 @@ html, body {
 /* Header & Navbar */
 header {
   position: fixed;
-  top: 10px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 9999;
   transition: var(--transition-smooth);
+  background: rgba(3, 0, 8, 0.56);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.55);
 }
 
 header.scrolled {
-  background: rgba(3, 0, 8, 0.75);
+  /* Keep scrolled state slightly stronger */
+  background: rgba(3, 0, 8, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -136,10 +142,19 @@ header.scrolled {
 }
 
 .logo-wordmark {
-  background: linear-gradient(135deg, var(--accent-silver) 0%, #ffffff 48%, #dbc0ff 100%);
+  /* Animated gradient text: shifts to purple-white on hover */
+  background: linear-gradient(90deg, #f4f1ff 0%, #ffffff 24%, var(--primary-purple) 60%, #ab75ff 100%);
+  background-size: 200% 100%;
+  background-position: 0% 0%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: background-position 520ms cubic-bezier(0.2, 0.9, 0.2, 1), filter 360ms ease;
+}
+
+.logo:hover .logo-wordmark {
+  background-position: 100% 0%;
+  filter: drop-shadow(0 6px 18px rgba(141,77,255,0.14));
 }
 
 .nav-menu {
@@ -1248,6 +1263,110 @@ footer {
 
 /* ensure bento grid sizing for .card elements */
 .bento-grid .card{ width:100%; padding:18px }
+
+/* Simplified layout for the WHY section: 3 columns, cards do not span multiple columns */
+.why-section .bento-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: auto; grid-auto-flow: row; gap: 28px; }
+.why-section .bento-grid .card { grid-column: auto !important; grid-row: auto !important; }
+@media (max-width: 992px) { .why-section .bento-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .why-section .bento-grid { grid-template-columns: 1fr; } }
+
+/* 3D hover effect scoped to WHY section cards (title pops forward) */
+.why-section .bento-grid {
+  perspective: 700px;
+}
+.why-section .bento-grid .card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .48s cubic-bezier(0.2,0.9,0.18,1), box-shadow .28s ease;
+  transform-origin: center center;
+}
+.why-section .bento-grid .card:hover {
+  transform: translateZ(18px) rotateX(6deg) rotateY(6deg);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.65);
+}
+.why-section .bento-grid .card .card_title {
+  transition: transform .48s cubic-bezier(0.2,0.9,0.18,1);
+  transform: translateZ(0);
+}
+.why-section .bento-grid .card:hover .card_title {
+  transform: translateZ(48px);
+}
+
+/* Slightly deepen the inner content layer so the title feels in front */
+.why-section .bento-grid .card > * { transform: translateZ(4px); }
+
+@media (max-width: 1100px) {
+  .why-section .bento-grid .card:hover { transform: none; box-shadow: none; }
+  .why-section .bento-grid .card .card_title { transform: none; }
+}
+
+/* Glassy card visual + hover glow + moving sheen */
+.why-section .bento-grid .card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(18,10,26,0.68), rgba(12,6,20,0.48));
+  border: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+.why-section .bento-grid .card::before {
+  /* subtle inner vignette */
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(600px 220px at 50% 30%, rgba(141,77,255,0.06), rgba(0,0,0,0) 40%);
+  mix-blend-mode: screen;
+}
+.why-section .bento-grid .card::after {
+  /* angled sheen that slides across on hover */
+  content: '';
+  position: absolute;
+  top: -120%;
+  left: -40%;
+  width: 60%;
+  height: 300%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02) 40%, rgba(255,255,255,0));
+  transform: rotate(25deg) translateX(-60%);
+  transition: transform 0.85s cubic-bezier(.2,.8,.2,1), opacity 0.6s;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.why-section .bento-grid .card:hover::after {
+  transform: rotate(25deg) translateX(40%);
+  opacity: 1;
+}
+.why-section .bento-grid .card:hover {
+  box-shadow: 0 40px 120px rgba(141,77,255,0.22), 0 6px 30px rgba(0,0,0,0.6);
+  border-color: rgba(141,77,255,0.18);
+}
+
+/* Replace check icons with simple square bullets */
+.why-section .bento-grid .card .card__list .card__list_item { align-items: center; }
+.why-section .bento-grid .card .card__list .card__list_item .check {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border-radius: 4px;
+  background: transparent;
+  border: 2px solid rgba(141,77,255,0.7);
+  margin-right: 12px;
+  transition: background .28s ease, box-shadow .28s ease, border-color .28s ease;
+  color: transparent; /* hide textual check fallback */
+  font-size: 0px;
+}
+.why-section .bento-grid .card:hover .card__list .card__list_item .check {
+  background: linear-gradient(135deg, rgba(141,77,255,0.95), rgba(188,121,255,0.9));
+  border-color: transparent;
+  box-shadow: 0 12px 30px rgba(141,77,255,0.22);
+}
+
+/* Make list text stand out a bit more on hover */
+.why-section .bento-grid .card:hover .card__list .list_text { color: var(--text-primary); }
+
+/* Ensure buttons keep visible above sheen */
+.why-section .bento-grid .card .button { position: relative; z-index: 3; }
 
 
 /* Mobile responsive menu */
