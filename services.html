@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Services | EliteNova AI</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "bg-surface": "#0F1117",
+                        "on-background": "#e5e1e6",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-container": "#571bc1",
+                        "bg-deep": "#07070A",
+                        "accent-blue": "#4F7FFF",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "primary": "#b4c5ff",
+                        "surface-dim": "#131317",
+                        "primary-container": "#618bff",
+                        "accent-purple": "#8B5CF6",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "outline-variant": "#434654",
+                        "surface-container": "#201f23",
+                        "tertiary": "#ffb784",
+                        "surface": "#131317",
+                        "surface-container-highest": "#353438",
+                        "surface-bright": "#39393d",
+                        "on-primary-fixed": "#00174b",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#23005c",
+                        "on-primary": "#002a78",
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "inverse-primary": "#1554d4",
+                        "on-primary-container": "#00246a",
+                        "surface-variant": "#353438",
+                        "on-secondary-container": "#c4abff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-tint": "#b4c5ff",
+                        "secondary-fixed": "#e9ddff",
+                        "outline": "#8d90a0",
+                        "inverse-surface": "#e5e1e6",
+                        "error": "#ffb4ab",
+                        "background": "#131317",
+                        "on-error-container": "#ffdad6",
+                        "text-secondary": "#94A3B8",
+                        "tertiary-container": "#de7511",
+                        "surface-container-low": "#1b1b1f",
+                        "on-tertiary-fixed": "#301400",
+                        "on-tertiary-container": "#451f00",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#2a292d",
+                        "inverse-on-surface": "#303034",
+                        "secondary": "#d0bcff",
+                        "on-surface": "#e5e1e6",
+                        "on-secondary": "#3c0091",
+                        "surface-container-lowest": "#0e0e11",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "text-primary": "#FFFFFF",
+                        "tertiary-fixed": "#ffdcc6",
+                        "on-tertiary": "#4f2500",
+                        "on-surface-variant": "#c3c6d7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "stack-unit": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #07070A;
+            color: #e5e1e6;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(19, 19, 23, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .service-card:hover {
+            border-color: #8B5CF6;
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.2), inset 0 0 15px rgba(139, 92, 246, 0.1);
+            transform: translateY(-8px) scale(1.01);
+        }
+
+        .grid-overlay {
+            background-image: linear-gradient(rgba(79, 127, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 127, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .glow-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8B5CF6, #4F7FFF, transparent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: move-glow 4s infinite linear;
+        }
+
+        @keyframes move-glow {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .liquid-mesh {
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 70%);
+            filter: blur(50px);
+        }
+
+        .neon-text-blue {
+            text-shadow: 0 0 15px rgba(79, 127, 255, 0.5);
+        }
+
+        .neon-text-purple {
+            text-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4F7FFF, #8B5CF6);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 35px rgba(139, 92, 246, 0.5);
+            transform: scale(1.05);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Full Page 3D Background -->
+    <div class="fixed inset-0 z-[-1] pointer-events-none">
+        <!-- STITCH_THREEJS_START:ANIMATION_19 class="absolute inset-0 w-full h-full opacity-70" -->
+        <div class="absolute inset-0 w-full h-full opacity-70" style="display:block;">
+            <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+            <div id="threejs-container-ANIMATION_19" style="width:100%;height:100%"></div>
+            <!-- Three.js animation moved to services.js -->
+        </div>
+        <!-- STITCH_THREEJS_END:ANIMATION_19 -->
+        <div class="absolute inset-0 bg-gradient-to-b from-bg-deep/20 via-bg-deep/70 to-bg-deep"></div>
+        <div class="absolute inset-0 grid-overlay opacity-20"></div>
+    </div>
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-bg-deep/60 backdrop-blur-2xl border-b border-glass-border">
+        <div
+            class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div
+                class="font-display-lg-mobile md:text-[28px] font-black text-white tracking-tighter flex items-center gap-2">
+                <span
+                    class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xl">rocket_launch</span>
+                </span>
+                EliteNova AI
+            </div>
+            <nav class="hidden md:flex gap-10 items-center">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-white transition-colors"
+                    href="#">Solutions</a>
+                <a class="font-label-md text-label-md text-accent-blue font-bold border-b-2 border-accent-blue pb-1"
+                    href="#">Services</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-white transition-colors"
+                    href="#">Performance</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-white transition-colors"
+                    href="#">Agency</a>
+            </nav>
+            <button class="btn-primary text-white font-label-md py-3 px-8 rounded-lg">
+                Deploy Campaign
+            </button>
+        </div>
+    </header>
+    <main class="pt-32">
+        <!-- Hero Section -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal active">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue font-label-sm mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse"></span>
+                        Next-Gen Automation
+                    </div>
+                    <h1 class="font-display-lg-mobile md:font-headline-xl text-white mb-8 leading-tight tracking-tight">
+                        AI Automation Services Built For <span
+                            class="bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">Modern
+                            Businesses</span>
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-text-secondary mb-12 max-w-xl leading-relaxed">
+                        We help businesses automate customer communication, lead generation, customer support, and sales
+                        processes using practical AI-powered systems that save time and increase revenue.
+                    </p>
+                    <div class="flex flex-wrap gap-5">
+                        <button class="btn-primary text-white font-label-md px-10 py-4 rounded-xl">
+                            Book A Strategy Call
+                        </button>
+                        <button
+                            class="glass-card font-label-md px-10 py-4 rounded-xl text-white hover:bg-white/5 transition-all">
+                            Explore Solutions
+                        </button>
+                    </div>
+                </div>
+                <div class="relative reveal active" style="transition-delay: 200ms;">
+                    <div
+                        class="relative z-10 w-full aspect-[4/3] rounded-3xl overflow-hidden glass-card p-1 border-white/10 group">
+                        <img alt="AI Network"
+                            class="w-full h-full object-cover rounded-[1.4rem] opacity-70 group-hover:opacity-90 transition-opacity duration-700"
+                            data-alt="A highly complex and futuristic 3D visualization of a neural network grid in space. The structure consists of glowing nodes connected by fine, electric blue light filaments that pulse with energy. The background is a deep, obsidian void, creating a stark contrast that emphasizes the technological advancement and interconnected nature of the AI system. The scene is illuminated by soft, atmospheric glow and cinematic light leaks in shades of purple and blue."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuChACXt6Kvj7rzgVnveVK2QsQH9Cfq57Y4WmHoJI-QewxnI3hHCu-NFVS5uyS5q_jc92JOOGdNgLEje7NE0V8subviJ9bfeDpjRoV5FCBfAafodIDnjUYSbTLaNBMp0q5XaGfnctVKfSk5yctAbYUwV9WEJldhDbXrEBOYBvSvHharMs0v3ajOzi9nuaI8Jv2i5z-wT4jFlAFKirf2iLuRLbggYTmBcwf5R54xqfDPwTYAzIyfgpAZn94mmIXQKECkGur91BWYjOUY" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-bg-deep/90 via-transparent to-transparent pointer-events-none">
+                        </div>
+                    </div>
+                    <div class="absolute -top-16 -right-16 w-64 h-64 bg-accent-blue/20 blur-[100px] rounded-full"></div>
+                    <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-accent-purple/20 blur-[100px] rounded-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Introduction Section -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40 reveal">
+            <div
+                class="glass-card p-12 md:p-24 rounded-[3rem] border-white/10 relative overflow-hidden text-center mx-auto max-w-5xl">
+                <div class="absolute top-0 left-0 w-full h-full liquid-mesh opacity-20"></div>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="font-headline-lg text-headline-lg mb-8 text-white">Automation That Works For Your
+                        Business</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        At EliteNova AI, we build intelligent automation systems that streamline customer interactions,
+                        improve response times, capture more leads, and help businesses scale efficiently without
+                        increasing manual workload.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Core Services Section -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-headline-lg text-headline-xl text-white mb-4">Our Core Solutions</h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="w-16 h-16 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-blue/30 group-hover:border-accent-blue/60 transition-colors">
+                        <span class="material-symbols-outlined text-accent-blue text-4xl">smart_toy</span>
+                    </div>
+                    <h3 class="font-headline-lg text-[24px] text-white mb-5">AI Chatbot Setup</h3>
+                    <p class="font-body-md text-text-secondary mb-8 flex-grow leading-relaxed">Custom NLP-driven agents
+                        that handle support and booking 24/7 with human-like precision.</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span> 24/7
+                            Instant Responses</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span>
+                            Multi-platform Integration</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span> Natural
+                            Language Processing</li>
+                    </ul>
+                    <a class="text-accent-blue font-label-md flex items-center gap-2 group/link" href="#">Learn More
+                        <span
+                            class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="w-16 h-16 bg-accent-purple/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-purple/30">
+                        <span class="material-symbols-outlined text-accent-purple text-4xl">hub</span>
+                    </div>
+                    <h3 class="font-headline-lg text-[24px] text-white mb-5">Lead Generation</h3>
+                    <p class="font-body-md text-text-secondary mb-8 flex-grow leading-relaxed">Automated funnels that
+                        identify, qualify, and segment prospects without manual input.</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span>
+                            Automated Qualification</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span> CRM
+                            Data Syncing</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span>
+                            High-intent Scoring</li>
+                    </ul>
+                    <a class="text-accent-purple font-label-md flex items-center gap-2 group/link" href="#">Learn More
+                        <span
+                            class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal md:col-span-2"
+                    style="transition-delay: 300ms;">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                        <img alt="Security" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIgHnBdOKpIgdrNeoO6lWqrkHO1JeljrAo3cTiZ85j5_qStDxa8t6xsJ28W32A3FfCd5wSzI4VYIvcjvy6yWamgk-VBvfm6cLQlZJac2mEOevkYSEt5Eo66maWCMDKUaW7mx6W3uHCCSRH19_oKYRiYTHMhY88N4MlWEDDIxJ0dsY_dzhQ2jqqV_PSDty9cTB1hw7fIoafKQInUOe0goDKqD_9B_bfu0lXU44CtX5MwQ9k69HzhYwWzb0mCFxQmlB4vzd6d4yMSjM" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent">
+                        </div>
+                    </div>
+                    <div
+                        class="w-16 h-16 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-blue/30">
+                        <span class="material-symbols-outlined text-accent-blue text-4xl">support_agent</span>
+                    </div>
+                    <h3 class="font-headline-lg text-[24px] text-white mb-5">Support Automation</h3>
+                    <p class="font-body-md text-text-secondary mb-8 flex-grow leading-relaxed">Deflect up to 80% of
+                        common tickets with automated resolution systems.</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span> Smart
+                            Ticket Routing</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span>
+                            Self-service Portals</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span>
+                            Escalation Protocols</li>
+                    </ul>
+                    <a class="text-accent-blue font-label-md flex items-center gap-2 group/link" href="#">Learn More
+                        <span
+                            class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="w-16 h-16 bg-accent-purple/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-purple/30">
+                        <span class="material-symbols-outlined text-accent-purple text-4xl">payments</span>
+                    </div>
+                    <h3 class="font-headline-lg text-[24px] text-white mb-5">Sales Automation</h3>
+                    <p class="font-body-md text-text-secondary mb-8 flex-grow leading-relaxed">End-to-end sales
+                        pipelines that manage outreach, follow-ups, and closing tasks.</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span>
+                            Persistent Follow-ups</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span>
+                            Proposal Generation</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span>
+                            Auto-Scheduling</li>
+                    </ul>
+                    <a class="text-accent-purple font-label-md flex items-center gap-2 group/link" href="#">Learn More
+                        <span
+                            class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+                </div>
+                <!-- Card 5 -->
+                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="w-16 h-16 bg-accent-blue/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-blue/30">
+                        <span class="material-symbols-outlined text-accent-blue text-4xl">share</span>
+                    </div>
+                    <h3 class="font-headline-lg text-[24px] text-white mb-5">Social Media AI</h3>
+                    <p class="font-body-md text-text-secondary mb-8 flex-grow leading-relaxed">Maintain a constant
+                        presence with AI-generated content and auto-reply systems.</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span>
+                            Auto-Reply DM's</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span> Content
+                            Scheduling</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-blue text-sm">check_circle</span>
+                            Engagement Monitoring</li>
+                    </ul>
+                    <a class="text-accent-blue font-label-md flex items-center gap-2 group/link" href="#">Learn More
+                        <span
+                            class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+                </div>
+                <!-- Card 6 -->
+                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal md:col-span-2"
+                    style="transition-delay: 300ms;">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                        <img alt="Security" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIgHnBdOKpIgdrNeoO6lWqrkHO1JeljrAo3cTiZ85j5_qStDxa8t6xsJ28W32A3FfCd5wSzI4VYIvcjvy6yWamgk-VBvfm6cLQlZJac2mEOevkYSEt5Eo66maWCMDKUaW7mx6W3uHCCSRH19_oKYRiYTHMhY88N4MlWEDDIxJ0dsY_dzhQ2jqqV_PSDty9cTB1hw7fIoafKQInUOe0goDKqD_9B_bfu0lXU44CtX5MwQ9k69HzhYwWzb0mCFxQmlB4vzd6d4yMSjM" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent">
+                        </div>
+                    </div>
+                    <div
+                        class="w-16 h-16 bg-accent-purple/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-purple/30">
+                        <span class="material-symbols-outlined text-accent-purple text-4xl">settings_suggest</span>
+                    </div>
+                    <h3 class="font-headline-lg text-[24px] text-white mb-5">Workflow Systems</h3>
+                    <p class="font-body-md text-text-secondary mb-8 flex-grow leading-relaxed">Connect disparate
+                        business apps into a single, cohesive automated architecture.</p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span> App
+                            Integration</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span> Error
+                            Handling</li>
+                        <li class="flex items-center gap-3 text-sm text-on-surface-variant"><span
+                                class="material-symbols-outlined text-accent-purple text-sm">check_circle</span>
+                            Performance Dashboards</li>
+                    </ul>
+                    <a class="text-accent-purple font-label-md flex items-center gap-2 group/link" href="#">Learn More
+                        <span
+                            class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+                </div>
+            </div>
+        </section>
+        <!-- How It Works Section -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40 overflow-hidden">
+            <div class="text-center mb-24 reveal">
+                <h2 class="font-headline-lg text-headline-xl text-white mb-4">How It Works</h2>
+                <p class="text-text-secondary max-w-xl mx-auto text-lg">Our seamless integration process from inquiry to
+                    growth.</p>
+            </div>
+            <div class="relative flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4 reveal">
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center w-full md:w-1/6 group">
+                    <div
+                        class="w-20 h-20 glass-card rounded-2xl flex items-center justify-center mx-auto mb-6 border-accent-blue/30 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent-blue text-3xl">chat</span>
+                    </div>
+                    <p class="font-label-md text-sm text-white">Customer Inquiry</p>
+                </div>
+                <div class="hidden md:block flex-1 glow-line"></div>
+                <span class="material-symbols-outlined md:hidden text-accent-blue">south</span>
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center w-full md:w-1/6 group">
+                    <div
+                        class="w-20 h-20 glass-card rounded-2xl flex items-center justify-center mx-auto mb-6 border-accent-purple/30 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent-purple text-3xl">bolt</span>
+                    </div>
+                    <p class="font-label-md text-sm text-white">AI Automation</p>
+                </div>
+                <div class="hidden md:block flex-1 glow-line"></div>
+                <span class="material-symbols-outlined md:hidden text-accent-purple">south</span>
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center w-full md:w-1/6 group">
+                    <div
+                        class="w-20 h-20 glass-card rounded-2xl flex items-center justify-center mx-auto mb-6 border-accent-blue/30 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent-blue text-3xl">verified</span>
+                    </div>
+                    <p class="font-label-md text-sm text-white">Lead Qualification</p>
+                </div>
+                <div class="hidden md:block flex-1 glow-line"></div>
+                <span class="material-symbols-outlined md:hidden text-accent-blue">south</span>
+                <!-- Step 4 -->
+                <div class="relative z-10 text-center w-full md:w-1/6 group">
+                    <div
+                        class="w-20 h-20 glass-card rounded-2xl flex items-center justify-center mx-auto mb-6 border-accent-purple/30 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent-purple text-3xl">sync_alt</span>
+                    </div>
+                    <p class="font-label-md text-sm text-white">Follow-Up System</p>
+                </div>
+                <div class="hidden md:block flex-1 glow-line"></div>
+                <span class="material-symbols-outlined md:hidden text-accent-purple">south</span>
+                <!-- Step 5 -->
+                <div class="relative z-10 text-center w-full md:w-1/6 group">
+                    <div
+                        class="w-20 h-20 glass-card rounded-2xl flex items-center justify-center mx-auto mb-6 border-accent-blue/30 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-accent-blue text-3xl">monetization_on</span>
+                    </div>
+                    <p class="font-label-md text-sm text-white">Sales Opportunity</p>
+                </div>
+                <div class="hidden md:block flex-1 glow-line"></div>
+                <span class="material-symbols-outlined md:hidden text-accent-blue">south</span>
+                <!-- Step 6 -->
+                <div class="relative z-10 text-center w-full md:w-1/6 group">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-accent-blue to-accent-purple rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-white text-3xl">trending_up</span>
+                    </div>
+                    <p
+                        class="font-label-md text-sm text-white font-bold bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">
+                        Business Growth</p>
+                </div>
+            </div>
+        </section>
+        <!-- Target Industries -->
+        <section class="bg-surface-container-lowest/50 py-32 mb-40 border-y border-glass-border">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="text-center mb-20 reveal">
+                    <h2 class="font-headline-lg text-headline-xl text-white mb-4">Industries We Scale</h2>
+                    <p class="text-text-secondary text-lg">Tailored automation for diverse business models.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card"
+                        style="transition-delay: 50ms;">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-blue mb-4 block group-hover:scale-110 transition-transform">fitness_center</span>
+                        <span class="text-sm font-label-md text-white">Gyms</span>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card"
+                        style="transition-delay: 100ms;">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-purple mb-4 block group-hover:scale-110 transition-transform">content_cut</span>
+                        <span class="text-sm font-label-md text-white">Salons</span>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card"
+                        style="transition-delay: 150ms;">
+                        <div
+                            class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                            <img alt="Scalability" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMrBt7EGuECNmVqtYTk52IQ7am3-36KHtCAhcJA9s3fEYk8-TjQ7nTgSHdcsVzhPD2ddmMVV6Rvzda3QoNkVhssMQ5cm4azYKana285v3OlnBoOcoRVNk93x-cyYzjS4gTAOW1Q_QUdAK1RO2rQGT-pgBeZCEZ1woysy_m4Q2M4hQfEVTyCU8Aj676F-izbUM-Thz4ZaDGUeNkvxqnsglPFzI_AUjpYUQTvMwpUHcC9vnic23S3Slduahb9PbU95I9RuSRyDeV1vw" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent">
+                            </div>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-blue mb-4 block group-hover:scale-110 transition-transform">medical_services</span>
+                        <span class="text-sm font-label-md text-white">Clinics</span>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card"
+                        style="transition-delay: 200ms;">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-purple mb-4 block group-hover:scale-110 transition-transform">real_estate_agent</span>
+                        <span class="text-sm font-label-md text-white">Real Estate</span>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card md:col-span-2"
+                        style="transition-delay: 250ms;">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-blue mb-4 block group-hover:scale-110 transition-transform">school</span>
+                        <span class="text-sm font-label-md text-white">Coaching</span>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card md:col-span-2"
+                        style="transition-delay: 300ms;">
+                        <div
+                            class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                            <img alt="Security" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIgHnBdOKpIgdrNeoO6lWqrkHO1JeljrAo3cTiZ85j5_qStDxa8t6xsJ28W32A3FfCd5wSzI4VYIvcjvy6yWamgk-VBvfm6cLQlZJac2mEOevkYSEt5Eo66maWCMDKUaW7mx6W3uHCCSRH19_oKYRiYTHMhY88N4MlWEDDIxJ0dsY_dzhQ2jqqV_PSDty9cTB1hw7fIoafKQInUOe0goDKqD_9B_bfu0lXU44CtX5MwQ9k69HzhYwWzb0mCFxQmlB4vzd6d4yMSjM" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent">
+                            </div>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-purple mb-4 block group-hover:scale-110 transition-transform">store</span>
+                        <span class="text-sm font-label-md text-white">Local Biz</span>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card"
+                        style="transition-delay: 350ms;">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-blue mb-4 block group-hover:scale-110 transition-transform">shopping_cart</span>
+                        <span class="text-sm font-label-md text-white">E-Commerce</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Why Choose Section -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-headline-lg text-headline-xl text-white mb-4">Why EliteNova AI?</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <!-- Save Time (Large 2x2) -->
+                <div
+                    class="md:col-span-2 md:row-span-2 bg-surface-container-low/40 backdrop-blur-xl border border-white/10 rounded-3xl p-10 relative overflow-hidden group reveal service-card">
+                    <div class="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
+                        <img alt="Time Saved AI" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiu4IUb9Xixq0EmEB80MZCVKXEt0avVf6nVMfvjTyeADmb-xXm2hBfHGcbiqKsyXnI8lwG6sOyKtuBmamBHjYo-vSSG02asiNzJ8OAGdim7hSrczqOGNM-DsjuPBVeUFMyj_mONdzerbdqSkbau7EZpSNXodVjosrsrpHpsT8rfeIEUpPy6-4CcmX03BDCtgPhSHCGmKblsvfE0eBV02GqfmgbrWer5dJXl8PS05nPBXkLfLIG-xLtZZyteQWeSIGutKjp5tX1GLU" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent">
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -top-10 -right-10 w-32 h-32 bg-accent-blue/10 blur-3xl rounded-full group-hover:bg-accent-blue/20 transition-colors">
+                    </div>
+                    <div class="relative z-10">
+                        <span class="material-symbols-outlined text-accent-blue text-4xl mb-6 block">schedule</span>
+                        <h4 class="font-headline-lg text-3xl text-white mb-4">Save Time</h4>
+                        <p class="text-lg text-on-surface-variant leading-relaxed">Reclaim hundreds of hours monthly by
+                            offloading repetitive communication tasks. Our AI handles the heavy lifting while you focus
+                            on high-level strategy.</p>
+                    </div>
+                </div>
+                <!-- Efficiency (1x1) -->
+                <div class="md:col-span-1 bg-surface-container-low/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 relative overflow-hidden group reveal service-card"
+                    style="transition-delay: 100ms;">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                        <img alt="Efficiency Data Streams" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxuB_BNw4ZS1ci73SW_BelmdGcrSYiaDlG2XtTzsXIQAMuPbNEPzNOHe-LarbjA6ojtGlgvuhkhyYbXHGh9GW0nnlEUS6SegwJeJ_VpdGryHp8kDAncYuIY75ZakNLy6ZoYoGWTDWIAA69IYKZImVZ739yLg1KMIq3-zRoIp7-uNx_vH7KDI8M0b1dYcBxxp6AX545FIgJTePuhbZ2IFTnl3SwoE4tKep00Gewk4S-N6thWzyzOyL82hleQknUWNomJ_T_rGxUCHM" />
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-accent-purple/10 blur-2xl rounded-full"></div>
+                    <div class="relative z-10">
+                        <span class="material-symbols-outlined text-accent-purple text-3xl mb-4 block">bolt</span>
+                        <h4 class="font-headline-lg text-xl text-white mb-2">Efficiency</h4>
+                        <p class="text-sm text-on-surface-variant">Scale operations instantly without hiring staff.</p>
+                    </div>
+                </div>
+                <!-- Scalability (1x1 - New Filler) -->
+                <div class="md:col-span-1 bg-surface-container-low/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 relative overflow-hidden group reveal service-card"
+                    style="transition-delay: 150ms;">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                        <img alt="Scalability" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMrBt7EGuECNmVqtYTk52IQ7am3-36KHtCAhcJA9s3fEYk8-TjQ7nTgSHdcsVzhPD2ddmMVV6Rvzda3QoNkVhssMQ5cm4azYKana285v3OlnBoOcoRVNk93x-cyYzjS4gTAOW1Q_QUdAK1RO2rQGT-pgBeZCEZ1woysy_m4Q2M4hQfEVTyCU8Aj676F-izbUM-Thz4ZaDGUeNkvxqnsglPFzI_AUjpYUQTvMwpUHcC9vnic23S3Slduahb9PbU95I9RuSRyDeV1vw" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent">
+                        </div>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="material-symbols-outlined text-accent-blue text-3xl mb-4 block">expand</span>
+                        <h4 class="font-headline-lg text-xl text-white mb-2">Scalability</h4>
+                        <p class="text-sm text-on-surface-variant">Grow from 10 to 10,000 leads seamlessly.</p>
+                    </div>
+                </div>
+                <!-- Experience (2x1) -->
+                <div class="md:col-span-2 bg-surface-container-low/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 relative overflow-hidden group reveal service-card"
+                    style="transition-delay: 200ms;">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                        <img alt="Customer Experience AI" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0BX8TcyzjflLXj1JDTeogXxBZE_ERGNOUNFKb-IyCLLqYNt8BoWXBASE7rTZWs7Yb67DMIehwl88NhaGHyEsDdQFcNg3ng3xYVhd7cp3jK5LkEQfaTLlqQu9_SsHz6Zb1TBaq6DsmYVs2tW6x-fgFB8354FHl9AzZlAMGxoYdNVp5eS40pqdu_ShkZ4rKdR_HT6igiY3YzBqZfq6YrkdhYJfoPSBKb8U49ip2Z_bRyNWUEiXmOwvJ0JOwl193bL9vRrszSbxJ5sM" />
+                        <div class="absolute inset-0 bg-gradient-to-r from-bg-deep/80 via-transparent to-transparent">
+                        </div>
+                    </div>
+                    <div class="absolute -top-8 -left-8 w-32 h-32 bg-accent-blue/5 blur-3xl rounded-full"></div>
+                    <div class="relative z-10 flex items-center gap-6 mix-blend-plus-lighter">
+                        <div class="flex-1">
+                            <h4 class="font-headline-lg text-2xl text-white mb-2">Experience</h4>
+                            <p class="text-base text-on-surface-variant">Provide instant, accurate responses to every
+                                customer, every single time.</p>
+                        </div>
+                        <span class="material-symbols-outlined text-accent-blue text-5xl opacity-20">forum</span>
+                    </div>
+                </div>
+                <!-- Revenue (1x1) -->
+                <div class="bg-surface-container-low/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 relative overflow-hidden group reveal service-card md:col-span-2"
+                    style="transition-delay: 250ms;">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                        <img alt="Revenue Growth" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzDHsYNct2DPe0t8GG33Du5_3PpJ18BisZQFwvk6TP2Er36InYmzrBBuXotzRl5q1I3apxiOLEX9eApqmIEUR_OHHEuICWXoSgB-CaPJWbmT80q3j5Z8PCvcf4yGtCvDXpzfkOO5S42OepNQdRQSRv_Ky9KJnCDvf6KfdwaYP55cCE-wEPsThsId4PSt_Iyz7HaILwlVMBIdwqzoXjnIoqZCwme-Ou1kXJtTUnVe9ZB3oP5wgtknP1zMRwwFzEVLrXgqWgfqns4Ak" />
+                    </div>
+                    <div class="relative z-10">
+                        <span class="material-symbols-outlined text-accent-purple text-3xl mb-4 block">payments</span>
+                        <h4 class="font-headline-lg text-xl text-white mb-2">Revenue</h4>
+                        <p class="text-sm text-on-surface-variant">Never miss a lead with proactive engagement.</p>
+                    </div>
+                </div>
+                <!-- Security (1x1 - New Filler) -->
+                <div class="bg-surface-container-low/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 relative overflow-hidden group reveal service-card md:col-span-2"
+                    style="transition-delay: 300ms;">
+                    <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
+                        <img alt="Security" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIgHnBdOKpIgdrNeoO6lWqrkHO1JeljrAo3cTiZ85j5_qStDxa8t6xsJ28W32A3FfCd5wSzI4VYIvcjvy6yWamgk-VBvfm6cLQlZJac2mEOevkYSEt5Eo66maWCMDKUaW7mx6W3uHCCSRH19_oKYRiYTHMhY88N4MlWEDDIxJ0dsY_dzhQ2jqqV_PSDty9cTB1hw7fIoafKQInUOe0goDKqD_9B_bfu0lXU44CtX5MwQ9k69HzhYwWzb0mCFxQmlB4vzd6d4yMSjM" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent">
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 w-24 h-24 bg-accent-blue/10 blur-2xl rounded-full"></div>
+                    <div class="relative z-10">
+                        <span class="material-symbols-outlined text-accent-blue text-3xl mb-4 block">shield</span>
+                        <h4 class="font-headline-lg text-xl text-white mb-2">Security</h4>
+                        <p class="text-sm text-on-surface-variant">Enterprise-grade data protection protocols.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Mission Section -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40 reveal">
+            <div
+                class="relative bg-gradient-to-br from-bg-surface to-bg-deep rounded-[3.5rem] p-16 md:p-28 overflow-hidden border border-white/10 group">
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(139,92,246,0.1),transparent_50%)]">
+                </div>
+                <div class="absolute inset-0 liquid-mesh opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                <div class="relative z-10 text-center">
+                    <span class="font-label-md text-accent-blue tracking-widest uppercase mb-6 block font-bold">Our
+                        Goal</span>
+                    <h2 class="font-display-lg-mobile md:font-headline-xl text-white mb-10 tracking-tight">Engineering
+                        Measurable Success</h2>
+                    <p
+                        class="font-body-lg text-body-lg text-on-surface-variant max-w-4xl mx-auto leading-relaxed text-xl">
+                        To help businesses save time, reduce manual work, improve customer experience, and increase
+                        sales through practical AI automation solutions that deliver measurable results.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA -->
+        <section class="relative py-48 overflow-hidden border-t border-glass-border">
+            <div class="absolute inset-0 z-[-1]">
+                <img alt="AI Sphere" class="w-full h-full object-cover opacity-40 mix-blend-overlay"
+                    data-alt="A massive, ethereal glowing sphere of complex data and light particles representing an artificial intelligence nucleus. The sphere is composed of thousands of intersecting white and electric blue lines, radiating a powerful, cinematic glow against a dark, cosmic background. Soft purple light leaks and a sense of deep dimensional space surround the orb, creating a high-end, futuristic, and premium technological atmosphere."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAznIfTelRJo7wvlgAH2BUPYbzcuFq0hr_DllwLDgxnvNWEMNQyl0iucgy1x0uUrlZqTZRqMusnaxASPW5avlNdpDrf40X7DvSTTJWgcJHOi69hfMM8nq6xT-CS5dgsuIa-tAdASYDUmKc4ESlHTAHMvltk2UGo_ZaDAT9UdKpzgVrJF6ohdbUFElj3NkukTsAbe2l4xk_5QiLwS1oRFBqESNrFtjQaokC48MIv75ia8sMTW5vbrJqaYvjfwf72whaLdgZrwQ6_YO8" />
+                <div class="absolute inset-0 bg-bg-deep/80"></div>
+            </div>
+            <div
+                class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10 reveal">
+                <h2 class="font-display-lg-mobile md:font-display-lg text-white mb-12 tracking-tighter">Ready To
+                    Automate <br class="hidden md:block" /><span
+                        class="bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">Your
+                        Business?</span></h2>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <button class="btn-primary text-white font-label-md px-12 py-6 rounded-2xl text-xl">
+                        Book Free Consultation
+                    </button>
+                    <button
+                        class="glass-card text-white font-label-md px-12 py-6 rounded-2xl text-xl border-white/20 hover:bg-white/5">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-bg-deep border-t border-glass-border py-20">
+        <div
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <div
+                    class="font-display-lg-mobile md:text-2xl font-black text-white mb-3 tracking-tighter flex items-center justify-center md:justify-start gap-2">
+                    <span
+                        class="w-6 h-6 rounded-md bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-sm">rocket_launch</span>
+                    </span>
+                    EliteNova AI
+                </div>
+                <p class="font-body-md text-body-md text-text-secondary max-w-sm">© 2024 EliteNova AI. Engineering the
+                    Future of Advertising through Intelligent Automation.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-10">
+                <a class="font-label-md text-text-secondary hover:text-accent-blue transition-colors" href="#">Privacy
+                    Protocol</a>
+                <a class="font-label-md text-text-secondary hover:text-accent-purple transition-colors" href="#">Service
+                    Terms</a>
+                <a class="font-label-md text-text-secondary hover:text-accent-blue transition-colors" href="#">API
+                    Documentation</a>
+                <a class="font-label-md text-text-secondary hover:text-accent-purple transition-colors" href="#">Contact
+                    Terminal</a>
+            </div>
+        </div>
+    </footer>
+    <script src="services.js"></script>
+</body>
+
+</html>
