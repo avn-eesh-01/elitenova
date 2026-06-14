@@ -1,0 +1,199 @@
+:root{
+  --bg-0: #05010a;
+  --bg-1: linear-gradient(180deg,#070018 0%, #050018 100%);
+  --card-bg: rgba(255,255,255,0.02);
+  --glass: rgba(255,255,255,0.03);
+  --muted: rgba(255,255,255,0.6);
+  --accent: #8437bf; /* purple */
+  --accent-2: #20d07a; /* green */
+  --glass-border: rgba(132,55,191,0.14);
+  --radius: 14px;
+}
+
+/* Apple-like system font stack */
+body{
+  margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:var(--bg-1); color: #e8e7ec; -webkit-font-smoothing:antialiased;
+}
+
+/* Header/nav styles come from style.css — keep overrides minimal here */
+
+
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:22px 48px;background:transparent}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand-logo{width:42px;height:42px;border-radius:8px;object-fit:cover}
+.brand-word{font-weight:700;letter-spacing:1px}
+.top-nav a{color:var(--muted);margin-left:18px;text-decoration:none;padding:8px 10px;border-radius:8px}
+.top-nav a.cta{background:linear-gradient(90deg,#5fb3ff,#b45cff);color:#05010a;padding:8px 12px}
+.top-nav a.active{color:#fff}
+
+.pricing-hero{padding:100px 24px 12px;text-align:center}
+.pricing-hero h1{font-size:44px;margin:0 0 8px;color:#fff}
+.pricing-hero p{color:var(--muted);margin:0}
+
+.pricing-section{padding:36px 24px 80px}
+.pricing-wrap{max-width:1200px;margin:28px auto}
+.annual-note{color:var(--muted);text-align:center;margin:18px 0 26px}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pricing-grid.annual{margin-top:6px}
+
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.012));border:1px solid rgba(132,55,191,0.06);padding:26px;border-radius:20px;backdrop-filter: blur(6px);position:relative;overflow:hidden;box-shadow:0 6px 30px rgba(4,3,8,0.6);transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease}
+.card.small{padding:20px;}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 60px rgba(132,55,191,0.12);border-color:var(--glass-border)}
+.card.popular{border:1px solid rgba(255,255,255,0.06);}
+.card.popular::before{content:"";position:absolute;inset:0;border-radius:20px;padding:1px;background:linear-gradient(90deg, rgba(132,55,191,0.14), rgba(95,179,255,0.06));-webkit-mask:linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);mask:linear-gradient(#000,#000) content-box, linear-gradient(#000,#000)}
+
+.badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  color:#fff;
+  font-weight:700;
+  font-size:13px;
+  overflow:visible;
+}
+.card.popular .badge{top:-6px;right:18px;left:auto;z-index:5}
+
+/* Center card: make the badge look like a gift-wrapper ribbon with shiny text */
+.pricing-grid > .card.popular:nth-child(2) .badge{
+  top:12px;
+  right:16px;
+  left:auto;
+  z-index:30;
+}
+
+/* badge card inner styling */
+.badge-card{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,#ffd37a,#ff7eb6);padding:8px 12px;border-radius:10px;color:#11010a;font-weight:800;box-shadow:0 10px 30px rgba(255,110,120,0.08);border:1px solid rgba(255,255,255,0.04)}
+.badge-icon{display:block;flex:0 0 20px;background:linear-gradient(90deg,#ff9f6b,#ff7eb6);padding:4px;border-radius:6px;box-shadow:inset 0 -2px 6px rgba(0,0,0,0.12)}
+.badge-text{font-size:13px;line-height:1}
+
+.pricing-grid > .card.popular:nth-child(2) .badge::before{
+  /* subtle glow behind the badge to lift it */
+  content:"";
+  position:absolute;
+  top:6px;
+  right:8px;
+  width:80px;
+  height:30px;
+  background:radial-gradient(circle at 20% 20%, rgba(255,200,120,0.25), rgba(255,140,160,0.06));
+  border-radius:8px;
+  filter:blur(8px);
+  z-index:2;
+  pointer-events:none;
+}
+
+.pricing-grid > .card.popular:nth-child(2) .badge::after{display:none}
+
+.card-head{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.plan-tag{font-weight:700;font-size:18px}
+.plan-sub{color:var(--muted);font-size:13px}
+
+.price{font-weight:800;font-size:34px;margin:6px 0;color:#fff}
+.price .per{font-weight:500;font-size:14px;color:var(--muted)}
+
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;text-decoration:none;text-align:center;cursor:pointer;margin:12px 0;transition:transform .18s ease, box-shadow .18s ease}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#5fb3ff);color:#0b0010;box-shadow:0 8px 30px rgba(132,55,191,0.12)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.btn.outline{background:transparent;border:1px solid rgba(132,55,191,0.14);color:var(--accent);padding:10px 16px}
+.btn:hover{transform:translateY(-4px)}
+
+.features{list-style:none;padding:0;margin:12px 0 18px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
+.features li{position:relative;padding-left:36px}
+.features li::before{content:"\2713";position:absolute;left:0;top:4px;width:24px;height:24px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#6af1d1,#6ea7ff);color:#07010a;font-weight:700;box-shadow:0 8px 26px rgba(73,31,98,0.12)}
+
+/* monthly/annual toggle pill on card */
+.card .toggle-wrap{position:absolute;top:14px;right:14px;display:flex;gap:6px;align-items:center}
+.toggle{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:999px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.toggle button{background:transparent;border:none;color:inherit;padding:6px 8px;border-radius:999px;cursor:pointer;transition:background .22s ease, color .22s ease}
+.toggle button.active{background:linear-gradient(90deg,var(--accent),#5fb3ff);color:#07010a;box-shadow:0 8px 30px rgba(132,55,191,0.12)}
+
+/* smooth price transition */
+.price{transition:opacity .28s ease, transform .28s ease}
+
+/* Global toggle centered above cards */
+.global-toggle-wrap{display:flex;justify-content:center;margin-bottom:20px}
+.global-toggle-wrap{gap:12px;align-items:center}
+.global-toggle{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:6px;border-radius:999px;display:flex;gap:10px;align-items:center}
+.global-btn{background:transparent;border:none;color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer;transition:all .22s ease;font-weight:600;position:relative}
+.global-btn.active{color:#07010a}
+.global-btn:focus{outline:2px solid rgba(132,55,191,0.12)}
+
+/* knob */
+.global-toggle{position:relative;padding:6px;border-radius:999px}
+.global-knob{
+  position:absolute;
+  left:6px;
+  top:6px;
+  /* span half the inner width so it covers the full label background */
+  width:calc(50% - 6px);
+  height:calc(100% - 12px);
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--accent),#5fb3ff);
+  box-shadow:0 10px 36px rgba(132,55,191,0.12);
+  transition:left .28s cubic-bezier(0.16,1,0.3,1),transform .28s ease;
+  z-index:1;
+}
+.global-toggle.year .global-knob{left:50%}
+.global-toggle .global-btn{z-index:2}
+
+/* save note next to toggle */
+.save-note{font-weight:700;color:#28d66b;background:rgba(40,214,107,0.06);padding:8px 10px;border-radius:999px;font-size:13px;z-index:3}
+
+/* background tiled checks using Iconify CDN and 3D parallax */
+.bg-checks{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:1;transform-style:preserve-3d;will-change:transform;transition:transform .2s linear}
+
+/* purple gradient grid background (single grid, no inner sub-grid) */
+.bg-checks::before{
+  content:"";
+  position:absolute;inset:0;
+  /* horizontal and vertical lines colored with a stronger purple */
+  background-image:
+    linear-gradient(rgba(147,70,205,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147,70,205,0.22) 1px, transparent 1px);
+  background-size:48px 48px,48px 48px;
+  opacity:1;
+  mix-blend-mode:screen;
+}
+
+/* subtle purple tint overlay to deepen background color */
+.bg-checks::after{
+  content:"";
+  position:absolute;inset:0;background:linear-gradient(180deg, rgba(147,70,205,0.06), rgba(95,179,255,0.02));pointer-events:none;opacity:0.85;mix-blend-mode:overlay;
+}
+
+/* remove ::after finer grid — we only want a single purple grid */
+
+/* ensure main content sits above the bg */
+header#main-header, main, footer{position:relative;z-index:2}
+
+/* subtle 3D perspective for the pricing area */
+.pricing-wrap{transform-style:preserve-3d;perspective:900px}
+
+.card-foot{color:var(--muted);font-size:13px;border-top:1px solid rgba(255,255,255,0.02);padding-top:14px;margin-top:6px}
+
+.pricing-cta{margin:28px 0 80px;padding:0 20px}
+.cta-inner{max-width:1100px;margin:0 auto;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(132,55,191,0.06)}
+.cta-card{display:flex;align-items:center;gap:16px}
+.cta-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(180deg,#5fb3ff,#b45cff);box-shadow:0 8px 30px rgba(91,46,132,0.12);flex-shrink:0}
+.cta-left h3{margin:0 0 4px}
+.cta-left p{margin:0;color:var(--muted)}
+.cta-features{list-style:none;padding:8px 0 0;margin:6px 0 0;display:flex;flex-direction:column;gap:6px;color:var(--muted)}
+.cta-features li{display:flex;align-items:center;gap:8px;font-size:14px}
+.feat-icon{flex:0 0 16px;display:block;opacity:0.95}
+.cta-btn{padding:10px 16px}
+
+.muted{color:var(--muted);font-size:13px;margin-top:8px}
+
+.site-footer{padding:24px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);}
+
+/* responsive */
+@media (max-width:980px){
+  .pricing-grid{grid-template-columns:1fr;}
+  .top-nav{display:none}
+  .brand-word{display:none}
+  .pricing-hero h1{font-size:32px}
+}
+
+@media (min-width:981px){
+  .pricing-wrap{padding:0 20px}
+}

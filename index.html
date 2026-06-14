@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elitenova is a premium AI automation agency. Supercharge your workflow, automate lead generation, and scale operations with custom AI agents and intelligent data pipelines.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Elitenova - Intelligent AI Automation & Custom Agents">
+  <meta property="og:description" content="Supercharge your operations with intelligent workflows and autonomous AI agents designed to eliminate manual tasks and scale growth.">
+  <meta property="og:image" content="https://framerusercontent.com/images/HMAXl2OBQIIUUaPBbnSBuo5EQYE.png">
+  
+  <!-- Page Title -->
+  <title>Elitenova - Intelligent AI Automation for Modern Businesses</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="./assets/ELITENOVA-LOGO.jpeg">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+  
+  <!-- Three.js Import Map for ES Modules -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <!-- Google Fonts for Integrations section -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+  /* Integrations / hero-like section styles inspired by reference */
+  .integrations-section{padding:96px 24px;background:transparent;color:#fff;text-align:center}
+  .integrations-section .section-tag{display:block;font-size:14px;color:#c8b9ff;margin-bottom:12px;font-family:Inter,system-ui,Segoe UI,Roboto}
+  .integrations-section .section-title{font-family:Poppins,Inter,system-ui;font-weight:800;font-size:56px;line-height:1.02;margin:0 0 16px;color:#fff}
+  .integrations-section .section-subtitle{max-width:900px;margin:0 auto 40px;color:rgba(255,255,255,0.78);font-size:16px}
+  .integration-grid{display:flex;flex-wrap:nowrap;gap:28px;justify-content:center;align-items:center;overflow:hidden;padding:32px 8px}
+  .integration-tile{width:84px;height:84px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.45);transition:transform .28s ease,box-shadow .28s}
+  .integration-tile img{width:44px;height:44px;object-fit:contain;border-radius:8px;filter:invert(1) grayscale(100%) brightness(200%)}
+  /* Gmail tile should show full color logo */
+  .integration-tile.brand-gmail{background:#ffffff}
+  .integration-tile.brand-gmail img{filter:none;width:48px;height:48px;border-radius:6px}
+  .integration-tile.brand-gmail svg{width:48px;height:48px}
+  .integration-tile.center{width:110px;height:110px;border-radius:18px;background:linear-gradient(135deg,#7b3fd5,#b03cf0);box-shadow:0 30px 60px rgba(176,60,240,0.28);transform:scale(1.04)}
+  .integration-tile.center img{width:56px;height:56px;filter:drop-shadow(0 6px 20px rgba(135,50,200,0.45))}
+  .integration-actions{margin-top:40px;display:flex;gap:18px;justify-content:center}
+  .btn-ghost{background:rgba(255,255,255,0.06);color:#fff;border:1px solid rgba(255,255,255,0.12);padding:12px 22px;border-radius:999px;font-family:Inter}
+  @media(max-width:900px){.integration-grid{gap:18px;overflow-x:auto;padding:16px}.integrations-section .section-title{font-size:36px}}
+  /* Brand color backgrounds for tiles */
+  .integration-tile.brand-gmail{background:#ffffff}
+  .integration-tile.brand-google{background:linear-gradient(135deg,#4285F4,#34A853,#FBBC05,#EA4335)}
+  .integration-tile.brand-meta{background:#1877F2}
+  .integration-tile.brand-openai{background:#111827}
+  .integration-tile.brand-linkedin{background:#0077B5}
+  .integration-tile.brand-instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af)}
+  /* subtle animated purple gradient overlay for integrations section */
+  .integrations-section{position:relative;overflow:hidden}
+  .integrations-section::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg, rgba(138,43,226,0.08), rgba(75,0,130,0.08));mix-blend-mode:screen;filter:blur(28px);opacity:1;transform:translateZ(0);animation:slowShift 12s linear infinite}
+  @keyframes slowShift{0%{transform:translateX(-6%) translateY(0) scale(1)}50%{transform:translateX(6%) translateY(-6px) scale(1.02)}100%{transform:translateX(-6%) translateY(0) scale(1)}}
+  </style>
+</head>
+<body>
+
+  <!-- Background Canvas Container for Three.js -->
+  <div id="canvas-container">
+    <canvas id="canvas-stars"></canvas>
+    <canvas id="canvas-torus"></canvas>
+  </div>
+
+  <!-- Content Wrapper -->
+  <div class="app-container">
+    
+    <!-- Ambient CSS Glow in case canvas loading takes time -->
+    <div class="ambient-glow"></div>
+
+    <!-- Header Navigation -->
+    <header id="main-header">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <img src="./assets/ELITENOVA-LOGO.jpeg" alt="Elitenova logo" class="logo-mark">
+          <span class="logo-wordmark">ELITENOVA</span>
+        </a>
+        
+        <div class="nav-pill">
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="#" class="nav-link">Home</a></li>
+            <li><a href="#features" class="nav-link">Features</a></li>
+            <li><a href="./pricing.html" class="nav-link">Pricing</a></li>
+            <li><a href="#cta" class="nav-link">Get Started</a></li>
+          </ul>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="#cta" class="nav-cta">Book a call</a>
+          <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-visual" aria-hidden="true">
+        <span class="hero-glow hero-glow-back"></span>
+        <span class="hero-glow hero-glow-core"></span>
+        <span class="hero-glow hero-glow-arc"></span>
+      </div>
+
+      <div class="badge-capsule">
+        <span class="badge-pill">New</span>
+        <span class="badge-text">Automated Lead Generation</span>
+      </div>
+      
+      <h1 class="hero-title">Scale Your Business with <br><span style="color: #8437bf;">AI-Powered Automation.</span></h1>
+      
+      <p class="hero-subtitle">Elitenova brings enterprise-grade AI automation to your fingertips to streamline workflows and optimize operations.</p>
+      
+      <div class="hero-actions">
+        <a href="#cta" class="btn btn-primary">
+          Get in touch
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="#features" class="btn btn-secondary">View services</a>
+      </div>
+    </section>
+
+    <!-- Logo Ticker Section -->
+    <section class="ticker-section">
+      <div class="ticker-title">Powering operations for modern teams</div>
+      <div class="ticker-wrap">
+        <!-- Doubled items to ensure seamless loop -->
+        <div class="ticker-track">
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            VERTEX TECH
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            ORBIT GLOBAL
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            SYNAPSE AI
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            ECHO PROTOCOL
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4.5 16.5c-1.5 1.25-2.5 3-2.5 5.5h20c0-2.5-1-4.25-2.5-5.5S15 15 12 15s-6 .25-7.5 1.5z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="6" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            NEXUS CORP
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2L2 22h20L12 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            APEX MATRIX
+          </div>
+          <!-- Loop Duplication -->
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            VERTEX TECH
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            ORBIT GLOBAL
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            SYNAPSE AI
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            ECHO PROTOCOL
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4.5 16.5c-1.5 1.25-2.5 3-2.5 5.5h20c0-2.5-1-4.25-2.5-5.5S15 15 12 15s-6 .25-7.5 1.5z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="6" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            NEXUS CORP
+          </div>
+          <div class="ticker-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2L2 22h20L12 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            APEX MATRIX
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services / Features Grid Section -->
+    <section class="features-section" id="features">
+      <div class="section-header reveal">
+        <span class="section-tag">Capabilities</span>
+        <h2 class="section-title">Automate everything. Focus on growth.</h2>
+        <p class="section-subtitle">We design bespoke AI pipelines, autonomous agents, and smart databases integrated directly into your existing stack.</p>
+      </div>
+      
+      <div class="features-grid">
+        <!-- Feature 1 -->
+          <div class="feature-card reveal">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zM6 20v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Lead Generation</h3>
+            <p class="feature-lead"><strong>Generate More Qualified Leads</strong></p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Capture leads automatically</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Organize customer inquiries</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Never miss an opportunity</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Increase conversion potential</span></li>
+            </ul>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card reveal">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 8h10l-1 9H8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Customer Automation</h3>
+            <p class="feature-lead"><strong>Automate Customer Communication</strong></p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Instant customer responses</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>24/7 engagement</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automated follow-ups</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Improved customer experience</span></li>
+            </ul>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card reveal">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Business Growth</h3>
+            <p class="feature-lead"><strong>Scale Your Business Efficiently</strong></p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reduce manual workload</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Save valuable time</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Streamline operations</span></li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Focus on growth</span></li>
+            </ul>
+          </div>
+
+        
+      </div>
+    </section>
+
+    <!-- Integrations Section (reference: adsgency.ai) -->
+    <section class="integrations-section" id="integrations">
+      <div class="section-header">
+        <span class="section-tag">Integrations</span>
+        <h2 class="section-title">Launch your Campaign from One Platform</h2>
+        <p class="section-subtitle">Launch and promote your content with ease using our integrated advertising platform.</p>
+      </div>
+
+      <div class="integration-grid" role="list">
+        <div class="integration-tile brand-gmail" role="listitem" aria-label="Gmail">
+          <!-- User-provided Gmail SVG (sized 32x32) -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 32 32" id="gmail">
+            <path fill="#ea4435" d="M16.58,19.1068l-12.69-8.0757A3,3,0,0,1,7.1109,5.97l9.31,5.9243L24.78,6.0428A3,3,0,0,1,28.22,10.9579Z"></path>
+            <path fill="#00ac47" d="M25.5,5.5h4a0,0,0,0,1,0,0v18a3,3,0,0,1-3,3h0a3,3,0,0,1-3-3V7.5a2,2,0,0,1,2-2Z" transform="rotate(180 26.5 16)"></path>
+            <path fill="#ffba00" d="M29.4562,8.0656c-.0088-.06-.0081-.1213-.0206-.1812-.0192-.0918-.0549-.1766-.0823-.2652a2.9312,2.9312,0,0,0-.0958-.2993c-.02-.0475-.0508-.0892-.0735-.1354A2.9838,2.9838,0,0,0,28.9686,6.8c-.04-.0581-.09-.1076-.1342-.1626a3.0282,3.0282,0,0,0-.2455-.2849c-.0665-.0647-.1423-.1188-.2146-.1771a3.02,3.02,0,0,0-.24-.1857c-.0793-.0518-.1661-.0917-.25-.1359-.0884-.0461-.175-.0963-.267-.1331-.0889-.0358-.1837-.0586-.2766-.0859s-.1853-.06-.2807-.0777a3.0543,3.0543,0,0,0-.357-.036c-.0759-.0053-.1511-.0186-.2273-.018a2.9778,2.9778,0,0,0-.4219.0425c-.0563.0084-.113.0077-.1689.0193a33.211,33.211,0,0,0-.5645.178c-.0515.022-.0966.0547-.1465.0795A2.901,2.901,0,0,0,23.5,8.5v5.762l4.72-3.3043a2.8878,2.8878,0,0,0,1.2359-2.8923Z"></path>
+            <path fill="#4285f4" d="M5.5,5.5h0a3,3,0,0,1,3,3v18a0,0,0,0,1,0,0h-4a2,2,0,0,1-2-2V8.5a3,3,0,0,1,3-3Z"></path>
+            <path fill="#c52528" d="M2.5439,8.0656c.0088-.06.0081-.1213.0206-.1812.0192-.0918.0549-.1766.0823-.2652A2.9312,2.9312,0,0,1,2.7426,7.32c.02-.0475.0508-.0892.0736-.1354A2.9719,2.9719,0,0,1,3.0316,6.8c.04-.0581.09-.1076.1342-.1626a3.0272,3.0272,0,0,1,.2454-.2849c.0665-.0647.1423-.1188.2147-.1771a3.0005,3.0005,0,0,1,.24-.1857c.0793-.0518.1661-.0917.25-.1359A2.9747,2.9747,0,0,1,4.3829,5.72c.089-.0358.1838-.0586.2766-.0859s.1853-.06.2807-.0777a3.0565,3.0565,0,0,1,.357-.036c.076-.0053.1511-.0186.2273-.018a2.9763,2.9763,0,0,1,.4219.0425c.0563.0084.113.0077.169.0193a2.9056,2.9056,0,0,1,.286.0888,2.9157,2.9157,0,0,1,.2785.0892c.0514.022.0965.0547.1465.0795a2.9745,2.9745,0,0,1,.3742.21A2.9943,2.9943,0,0,1,8.5,8.5v5.762L3.78,10.9579A2.8891,2.8891,0,0,1,2.5439,8.0656Z"></path>
+          </svg>
+        </div>
+
+        
+
+        <div class="integration-tile brand-meta" role="listitem">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/meta.svg" alt="Meta">
+        </div>
+
+        <div class="integration-tile brand-openai" role="listitem">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="OpenAI">
+        </div>
+
+        <div class="integration-tile brand-linkedin" role="listitem">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+        </div>
+
+        <div class="integration-tile brand-instagram" role="listitem">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </div>
+      </div>
+
+      <div class="integration-actions">
+        <a class="btn-ghost" href="#cta">Request Demo</a>
+      </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="cta-section" id="cta">
+      <div class="cta-box reveal">
+        <div class="cta-sheen" aria-hidden="true"></div>
+        <span class="cta-tag">Partner with Elitenova</span>
+        <h2 class="cta-title">Unlock Next-Gen Efficiency</h2>
+        <p class="cta-desc">Build custom integrations, and smart virtual assistants.<br> Book a demo today.</p>
+        
+        <form class="cta-form" id="cta-form">
+          <input type="email" class="cta-input" placeholder="Enter your business email" required>
+          <button type="submit" class="cta-btn">Book Discovery Call</button>
+        </form>
+        <div class="cta-msg" id="cta-msg">Thank you! We will reach out shortly to schedule your call.</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-text">
+          &copy; 2026 ELITENOVA AI. All rights reserved.
+        </div>
+        <ul class="footer-links">
+          <li class="footer-link"><a href="#">Home</a></li>
+          <li class="footer-link"><a href="#features">Features</a></li>
+          <li class="footer-link"><a href="#integrations">Integrations</a></li>
+          <li class="footer-link"><a href="#cta">Contact</a></li>
+        </ul>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript Entrypoints -->
+  <script type="module" src="./background3d.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
