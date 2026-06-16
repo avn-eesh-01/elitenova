@@ -119,7 +119,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body class="antialiased">
+<body class="antialiased services-page">
     <!-- Full Page 3D Background -->
     <div id="canvas-container">
       <canvas id="canvas-stars"></canvas>
@@ -129,12 +129,14 @@
         <div class="absolute inset-0 bg-gradient-to-b from-bg-deep/20 via-bg-deep/70 to-bg-deep"></div>
         <div class="absolute inset-0 grid-overlay opacity-20"></div>
     </div>
+
+    <div class="app-container">
         <!-- Navigation -->
         <header id="main-header">
             <div class="nav-container">
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                     <img src="./assets/ELITENOVA-LOGO.jpeg" alt="Elitenova logo" class="logo-mark">
-                    <span class="logo-wordmark">ELITENOVA</span>
+                    <span class="logo-wordmark">ELITENOVA AI</span>
                 </a>
         
                 <div class="nav-pill">
@@ -156,27 +158,56 @@
                 </div>
             </div>
         </header>
-    <main class="pt-32">
-        <!-- Hero Section (unified with site) -->
-        <section class="hero">
-          <div class="hero-visual" aria-hidden="true">
-            <span class="hero-glow hero-glow-back"></span>
-            <span class="hero-glow hero-glow-core"></span>
-            <span class="hero-glow hero-glow-arc"></span>
-          </div>
 
-          <div class="badge-capsule">
-            <span class="badge-pill">New</span>
-            <span class="badge-text">Automated Lead Generation</span>
-          </div>
-          
-          <h1 class="hero-title">Industries We Scale — <br><span style="color: #8437bf;">Tailored AI Automation</span></h1>
-          
-          <p class="hero-subtitle">Tailored automation for diverse business models with smooth, scroll-driven reveals across the page.</p>
-          
-          <div class="hero-actions">
-            <a href="#features" class="btn btn-primary">Explore Services</a>
-            <a href="#cta" class="btn btn-secondary">Book a call</a>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero hero--services">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <div class="badge-capsule">
+                <span class="badge-pill">New</span>
+                <span class="badge-text">Automated Lead Generation</span>
+              </div>
+
+              <h1 class="hero-title"> <span class="hero-accent">Automation</span> That Works For <span class="hero-accent">Your Business</span></h1>
+
+              <p class="hero-subtitle">Tailored automation for diverse business models with smooth, scroll-driven reveals across the page.</p>
+
+              <div class="hero-actions">
+                <a href="#features" class="btn btn-primary">Explore Services</a>
+                <a href="#cta" class="btn btn-secondary">Book a call</a>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <span class="hero-glow hero-glow-back"></span>
+              <span class="hero-glow hero-glow-core"></span>
+              <span class="hero-glow hero-glow-arc"></span>
+
+              <div class="floating-card card-1">
+                <small>AI Chatbot</small>
+                <h4>24/7 Support</h4>
+                <p>Instant replies across every channel.</p>
+                <div class="card-bar"></div>
+              </div>
+
+              <div class="floating-card card-2">
+                <small>Lead Generation</small>
+                <h4>Pipeline Active</h4>
+                <p>Qualified leads routed automatically.</p>
+                <div class="card-status">
+                  <span class="status-dot"></span>
+                  All systems normal.
+                </div>
+              </div>
+
+              <div class="floating-card card-3">
+                <small>Workflow Sync</small>
+                <h4>Apps Connected</h4>
+                <p>Your stack working as one system.</p>
+                <div class="card-bar"></div>
+              </div>
+            </div>
           </div>
         </section>
         <!-- Introduction Section -->
@@ -196,7 +227,7 @@
             </div>
         </section>
         <!-- Core Services Section -->
-        <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40">
+        <section id="features" class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40">
             <div class="text-center mb-20 reveal">
                 <h2 class="font-headline-lg text-headline-xl text-white mb-4">Our Core Solutions</h2>
                 <div class="w-32 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto rounded-full"></div>
@@ -253,7 +284,7 @@
                             class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
                 </div>
                 <!-- Card 3 -->
-                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal md:col-span-2"
+                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal"
                     style="transition-delay: 300ms;">
                     <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
                         <img alt="Security" class="w-full h-full object-cover"
@@ -334,7 +365,7 @@
                             class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
                 </div>
                 <!-- Card 6 -->
-                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal md:col-span-2"
+                <div class="glass-card service-card p-10 rounded-2xl flex flex-col reveal"
                     style="transition-delay: 300ms;">
                     <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
                         <img alt="Security" class="w-full h-full object-cover"
@@ -475,13 +506,13 @@
                             class="material-symbols-outlined text-4xl text-accent-purple mb-4 block group-hover:scale-110 transition-transform">real_estate_agent</span>
                         <span class="text-sm font-label-md text-white">Real Estate</span>
                     </div>
-                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card md:col-span-2"
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card"
                         style="transition-delay: 250ms;">
                         <span
                             class="material-symbols-outlined text-4xl text-accent-blue mb-4 block group-hover:scale-110 transition-transform">school</span>
                         <span class="text-sm font-label-md text-white">Coaching</span>
                     </div>
-                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card md:col-span-2"
+                    <div class="glass-card p-8 rounded-2xl text-center group reveal service-card"
                         style="transition-delay: 300ms;">
                         <div
                             class="absolute inset-0 z-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
@@ -611,7 +642,7 @@
         </section>
         <!-- Mission Section removed as requested -->
         <!-- Final CTA -->
-        <section class="relative py-48 overflow-hidden border-t border-glass-border">
+        <section id="cta" class="relative py-48 overflow-hidden border-t border-glass-border">
             <div class="absolute inset-0 z-[-1]">
                 <img alt="AI Sphere" class="w-full h-full object-cover opacity-40 mix-blend-overlay"
                     data-alt="A massive, ethereal glowing sphere of complex data and light particles representing an artificial intelligence nucleus. The sphere is composed of thousands of intersecting white and electric blue lines, radiating a powerful, cinematic glow against a dark, cosmic background. Soft purple light leaks and a sense of deep dimensional space surround the orb, creating a high-end, futuristic, and premium technological atmosphere."
@@ -664,6 +695,7 @@
             </div>
         </div>
     </footer>
+    </div>
     <script type="module" src="./background3d.js"></script>
     <script src="main.js"></script>
     <script src="services.js"></script>
