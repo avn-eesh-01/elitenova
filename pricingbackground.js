@@ -193,7 +193,7 @@ void main() {
 }
 `;
 
-// Configuration - Red color gradient (no luminous effect)
+// Configuration - Purple color gradient (no luminous effect)
 const CONFIG = {
     // Red gradient colors
     linesGradient: [
