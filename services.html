@@ -116,6 +116,7 @@
             }
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -162,55 +163,130 @@
     <main>
         <!-- Hero Section -->
         <section class="hero hero--services">
-          <div class="hero-grid">
+          <div class="hero-grid services-hero-grid">
+            <!-- Left Column -->
             <div class="hero-content">
-              <div class="badge-capsule">
-                <span class="badge-pill">New</span>
-                <span class="badge-text">Automated Lead Generation</span>
+              <div class="services-hero-badge">
+                <span class="services-badge-pill">SERVICES</span>
+                <span class="services-badge-dot">•</span>
+                <span class="services-badge-text">AI AUTOMATION SOLUTIONS</span>
               </div>
 
-              <h1 class="hero-title"> <span class="hero-accent">Automation</span> That Works For <span class="hero-accent">Your Business</span></h1>
+              <h1 class="hero-title">AI Solutions<br>Built Around<br><span class="hero-accent">Your Workflow</span></h1>
 
-              <p class="hero-subtitle">From lead generation to customer support, we design automation systems that help businesses scale faster with less
-            manual work.</p>
+              <p class="hero-subtitle">From lead generation to customer support, we build intelligent automation systems that save time, reduce costs, and help you scale faster.</p>
 
               <div class="hero-actions">
-                <a href="#features" class="btn btn-primary">Explore Services</a>
-                <a href="#cta" class="btn btn-secondary">Book a call</a>
+                <a href="#features" class="btn btn-primary">Explore Services <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></a>
+                <a href="#cta" class="btn btn-secondary"><span class="material-symbols-outlined" style="font-size:18px">call</span> Book a Call</a>
+              </div>
+
+              <div class="hero-trust-badges">
+                <div class="trust-badge-item">
+                  <span class="trust-badge-icon">
+                    <span class="material-symbols-outlined">verified_user</span>
+                  </span>
+                  <div class="trust-badge-info">
+                    <strong>Enterprise Grade</strong>
+                    <small>Secure &amp; Reliable</small>
+                  </div>
+                </div>
+                <div class="trust-badge-item">
+                  <span class="trust-badge-icon">
+                    <span class="material-symbols-outlined">bolt</span>
+                  </span>
+                  <div class="trust-badge-info">
+                    <strong>Custom Built</strong>
+                    <small>Tailored to You</small>
+                  </div>
+                </div>
+                <div class="trust-badge-item">
+                  <span class="trust-badge-icon">
+                    <span class="material-symbols-outlined">support_agent</span>
+                  </span>
+                  <div class="trust-badge-info">
+                    <strong>24/7 Support</strong>
+                    <small>Always Available</small>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="hero-visual" aria-hidden="true">
-              <span class="hero-glow hero-glow-back"></span>
-              <span class="hero-glow hero-glow-core"></span>
-              <span class="hero-glow hero-glow-arc"></span>
+            <!-- Right Column — 3D Sphere Visual -->
+            <div class="hero-visual services-hero-sphere-wrap" aria-hidden="true">
+              <!-- Three.js canvas renders here -->
+              <div id="hero-sphere-canvas"></div>
 
-              <div class="floating-card card-1">
-                <small>AI Chatbot</small>
-                <h4>24/7 Support</h4>
-                <p>Instant replies across every channel.</p>
-                <div class="card-bar"></div>
+              <!-- Center logo + AI CORE label -->
+              <div class="sphere-center-label">
+                <img src="./assets/ELITENOVA-LOGO.jpeg" alt="EN" class="sphere-logo">
+                <span class="sphere-core-text">AI CORE</span>
               </div>
 
-              <div class="floating-card card-2">
-                <small>Lead Generation</small>
-                <h4>Pipeline Active</h4>
-                <p>Qualified leads routed automatically.</p>
-                <div class="card-status">
-                  <span class="status-dot"></span>
-                  All systems normal.
-                </div>
+              <!-- SVG Orbital Rings (dashed ellipses) -->
+              <svg class="orbit-rings-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="250" cy="250" rx="200" ry="200"
+                  stroke="rgba(139,92,246,0.22)" stroke-width="1" stroke-dasharray="10 7" />
+                <ellipse cx="250" cy="250" rx="215" ry="125"
+                  stroke="rgba(139,92,246,0.16)" stroke-width="1" stroke-dasharray="8 9"
+                  transform="rotate(-28 250 250)" />
+                <ellipse cx="250" cy="250" rx="225" ry="110"
+                  stroke="rgba(139,92,246,0.12)" stroke-width="1" stroke-dasharray="6 11"
+                  transform="rotate(32 250 250)" />
+              </svg>
+
+              <!-- Background glow -->
+              <div class="sphere-glow"></div>
+
+              <!-- Orbit icon nodes -->
+              <div class="orbit-node node-automation">
+                <div class="orbit-node-icon"><span class="material-symbols-outlined">settings</span></div>
+                <span class="orbit-label">AUTOMATION</span>
               </div>
 
-              <div class="floating-card card-3">
-                <small>Workflow Sync</small>
-                <h4>Apps Connected</h4>
-                <p>Your stack working as one system.</p>
-                <div class="card-bar"></div>
+              <div class="orbit-node node-crm">
+                <div class="orbit-node-icon"><span class="material-symbols-outlined">link</span></div>
+                <span class="orbit-label orbit-label-right">CRM<br>INTEGRATION</span>
+              </div>
+
+              <div class="orbit-node node-whatsapp">
+                <div class="orbit-node-icon"><span class="material-symbols-outlined">chat</span></div>
+                <span class="orbit-label orbit-label-right">WHATSAPP<br>AUTOMATION</span>
+              </div>
+
+              <div class="orbit-node node-analytics">
+                <div class="orbit-node-icon"><span class="material-symbols-outlined">bar_chart</span></div>
+                <span class="orbit-label">ANALYTICS</span>
+              </div>
+
+              <div class="orbit-node node-chatbots">
+                <div class="orbit-node-icon"><span class="material-symbols-outlined">forum</span></div>
+                <span class="orbit-label orbit-label-left">AI CHATBOTS</span>
+              </div>
+
+              <div class="orbit-node node-leadgen">
+                <div class="orbit-node-icon"><span class="material-symbols-outlined">person_search</span></div>
+                <span class="orbit-label orbit-label-left">LEAD<br>GENERATION</span>
               </div>
             </div>
           </div>
         </section>
+
+        <!-- Trusted By Strip -->
+        <div class="hero-trust-strip">
+          <div class="trust-strip-label">
+            <span>TRUSTED BY</span>
+            <span>GROWING BUSINESSES</span>
+          </div>
+          <div class="trust-strip-logos">
+            <div class="trust-logo"><span class="trust-logo-icon">&#9650;</span> APEX LABS</div>
+            <div class="trust-logo"><span class="trust-logo-icon-alt">N</span> NEXUS CORP</div>
+            <div class="trust-logo"><span class="trust-logo-icon-v">&#10003;</span> VERITAS</div>
+            <div class="trust-logo trust-logo-stacked">ELEVATE<small>DIGITAL</small></div>
+            <div class="trust-logo"><span class="trust-logo-icon-s">S</span> SYNCER</div>
+            <div class="trust-logo"><span class="trust-logo-icon-o">&#9675;</span> ORBITAL</div>
+          </div>
+        </div>
         <!-- Introduction Section -->
         <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-40 reveal">
             <div
@@ -698,6 +774,7 @@
     </footer>
     </div>
     <script type="module" src="./background3d.js"></script>
+    <script type="module" src="./services-hero-sphere.js"></script>
     <script src="main.js"></script>
     <script src="services.js"></script>
 </body>
