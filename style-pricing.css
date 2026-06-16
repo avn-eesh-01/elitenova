@@ -140,26 +140,6 @@ body{
 .save-note{font-weight:700;color:#28d66b;background:rgba(40,214,107,0.06);padding:8px 10px;border-radius:999px;font-size:13px;z-index:3}
 
 /* background tiled checks using Iconify CDN and 3D parallax */
-.bg-checks{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:1;transform-style:preserve-3d;will-change:transform;transition:transform .2s linear}
-
-/* purple gradient grid background (single grid, no inner sub-grid) */
-.bg-checks::before{
-  content:"";
-  position:absolute;inset:0;
-  /* horizontal and vertical lines colored with a stronger purple */
-  background-image:
-    linear-gradient(rgba(147,70,205,0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(147,70,205,0.22) 1px, transparent 1px);
-  background-size:48px 48px,48px 48px;
-  opacity:1;
-  mix-blend-mode:screen;
-}
-
-/* subtle purple tint overlay to deepen background color */
-.bg-checks::after{
-  content:"";
-  position:absolute;inset:0;background:linear-gradient(180deg, rgba(147,70,205,0.06), rgba(95,179,255,0.02));pointer-events:none;opacity:0.85;mix-blend-mode:overlay;
-}
 
 /* remove ::after finer grid — we only want a single purple grid */
 
@@ -197,3 +177,43 @@ header#main-header, main, footer{position:relative;z-index:2}
 @media (min-width:981px){
   .pricing-wrap{padding:0 20px}
 }
+#hero-canvas-container{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+header,
+main,
+footer{
+    position: relative;
+    z-index: 2;
+}
+
+body{
+    overflow-x: hidden;
+    background: #05010a;
+}
+
+#hero-canvas-container{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+header,
+main,
+footer{
+    position: relative;
+    z-index: 2;
+}
+
+body{
+    overflow-x: hidden;
+    background: #05010a;
+}
+
+
+
