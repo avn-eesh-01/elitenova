@@ -1,0 +1,722 @@
+/* ═══════════════════════════════════════════════════════════
+   ABOUT PAGE — Hero, Principles, Team
+   ═══════════════════════════════════════════════════════════ */
+
+.about-page {
+  --about-card-bg: linear-gradient(180deg, rgba(18, 10, 32, 0.78), rgba(10, 6, 20, 0.55));
+  --about-border: rgba(139, 92, 246, 0.14);
+  --about-glow: rgba(141, 77, 255, 0.22);
+}
+
+.hero.hero--about {
+  min-height: auto;
+  padding: 148px 40px 72px;
+}
+
+.about-page .hero-title {
+  max-width: 640px;
+}
+
+.about-hero-grid {
+  align-items: center;
+}
+
+/* ─── Hero Badge ─────────────────────────────────────────── */
+.about-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.about-badge-pill {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 99px;
+  letter-spacing: 0.08em;
+}
+
+.about-badge-dot {
+  color: rgba(139, 92, 246, 0.6);
+  font-size: 0.65rem;
+}
+
+.about-badge-text {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+/* ─── Video CTA Button ───────────────────────────────────── */
+.btn-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px 10px 12px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+
+.btn-video:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(139, 92, 246, 0.35);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(141, 77, 255, 0.18);
+}
+
+.btn-video-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(139, 92, 246, 0.45);
+  background: rgba(139, 92, 246, 0.12);
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+}
+
+.btn-video:hover .btn-video-play {
+  background: rgba(139, 92, 246, 0.28);
+  border-color: rgba(167, 139, 250, 0.65);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+}
+
+.btn-video-play svg {
+  width: 14px;
+  height: 14px;
+  fill: #c4b5fd;
+  margin-left: 2px;
+}
+
+.btn-video-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+}
+
+.btn-video-text strong {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.btn-video-text small {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 400;
+}
+
+/* ─── Orbit Hero Visual ──────────────────────────────────── */
+.about-orbit-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  max-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.about-orbit-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72%;
+  height: 72%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(124, 58, 237, 0.22) 0%,
+    rgba(124, 58, 237, 0.08) 40%,
+    transparent 68%
+  );
+  filter: blur(36px);
+  z-index: 0;
+  animation: aboutGlowPulse 5s ease-in-out infinite;
+}
+
+@keyframes aboutGlowPulse {
+  0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.06); }
+}
+
+.about-orbit-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 94%;
+  height: 94%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-orbit-rings ellipse {
+  transform-origin: 250px 250px;
+}
+
+.about-orbit-rings .ring-1 {
+  animation: ringFade 6s ease-in-out infinite;
+}
+
+.about-orbit-rings .ring-2 {
+  animation: ringFade 8s ease-in-out infinite 1s;
+}
+
+.about-orbit-rings .ring-3 {
+  animation: ringFade 7s ease-in-out infinite 0.5s;
+}
+
+@keyframes ringFade {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.about-orbit-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.about-orbit-ring {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: radial-gradient(circle at 30% 30%, rgba(30, 15, 55, 0.9), rgba(12, 6, 24, 0.95));
+  border: 2px solid rgba(139, 92, 246, 0.45);
+  box-shadow:
+    0 0 40px rgba(139, 92, 246, 0.28),
+    inset 0 0 30px rgba(139, 92, 246, 0.08);
+  animation: centerRingBreath 4s ease-in-out infinite;
+}
+
+@keyframes centerRingBreath {
+  0%, 100% {
+    box-shadow:
+      0 0 40px rgba(139, 92, 246, 0.28),
+      inset 0 0 30px rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 0 60px rgba(139, 92, 246, 0.42),
+      inset 0 0 40px rgba(139, 92, 246, 0.14);
+    border-color: rgba(167, 139, 250, 0.65);
+  }
+}
+
+.about-orbit-ring img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-orbit-ring span {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+}
+
+.about-orbit-node {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-orbit-node.is-visible {
+  opacity: 1;
+}
+
+.about-orbit-node-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(18, 10, 32, 0.92), rgba(30, 15, 55, 0.82));
+  border: 1px solid rgba(139, 92, 246, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 14px rgba(139, 92, 246, 0.12);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.about-orbit-node:hover .about-orbit-node-icon {
+  border-color: rgba(167, 139, 250, 0.65);
+  box-shadow: 0 6px 24px rgba(139, 92, 246, 0.28);
+}
+
+.about-orbit-node-icon .material-symbols-outlined {
+  font-size: 20px;
+  color: #c4b5fd;
+}
+
+.about-orbit-node-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.82);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.about-orbit-node-sub {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.45;
+  max-width: 140px;
+}
+
+.node-about-mission {
+  top: 6%;
+  right: 2%;
+  flex-direction: row;
+  animation: floatNode 6s ease-in-out infinite;
+}
+
+.node-about-vision {
+  top: 14%;
+  left: 0;
+  flex-direction: row-reverse;
+  animation: floatNode 7s ease-in-out infinite 0.5s;
+}
+
+.node-about-journey {
+  bottom: 10%;
+  right: 0;
+  flex-direction: row;
+  animation: floatNode 5.5s ease-in-out infinite 1s;
+}
+
+.node-about-values {
+  bottom: 28%;
+  right: -4%;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: floatNode 6.5s ease-in-out infinite 0.3s;
+}
+
+.about-values-card {
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(12, 8, 24, 0.82);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(10px);
+  min-width: 168px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-orbit-node:hover .about-values-card {
+  border-color: rgba(139, 92, 246, 0.38);
+  box-shadow: 0 8px 28px rgba(139, 92, 246, 0.14);
+}
+
+.about-values-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-values-card li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.55);
+  padding: 3px 0;
+}
+
+.about-values-card li .material-symbols-outlined {
+  font-size: 12px;
+  color: #a78bfa;
+}
+
+@keyframes floatNode {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ─── Principles Section ─────────────────────────────────── */
+.about-principles {
+  padding: 96px 40px 80px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.about-section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.about-section-tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #a78bfa;
+  margin-bottom: 14px;
+}
+
+.about-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.about-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.about-principle-card {
+  position: relative;
+  padding: 28px 24px 32px;
+  border-radius: 18px;
+  background: var(--about-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.about-principle-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(139, 92, 246, 0.12) 0%,
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.about-principle-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139, 92, 246, 0.32);
+  box-shadow: 0 24px 56px rgba(141, 77, 255, 0.14);
+}
+
+.about-principle-card:hover::before {
+  opacity: 1;
+}
+
+.about-principle-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  margin-bottom: 20px;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.about-principle-card:hover .about-principle-icon {
+  border-color: rgba(167, 139, 250, 0.45);
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.28);
+}
+
+.about-principle-icon .material-symbols-outlined {
+  font-size: 24px;
+  color: #c4b5fd;
+  transition: color 0.35s ease;
+}
+
+.about-principle-card:hover .about-principle-icon .material-symbols-outlined {
+  color: #ddd6fe;
+}
+
+.about-principle-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.about-principle-card p {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.about-principle-num {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: rgba(139, 92, 246, 0.08);
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.35s ease;
+}
+
+.about-principle-card:hover .about-principle-num {
+  color: rgba(139, 92, 246, 0.14);
+}
+
+/* ─── Team Section ───────────────────────────────────────── */
+.about-team {
+  padding: 40px 40px 96px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.about-team-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.about-team-header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.about-team-header p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.52);
+  max-width: 480px;
+  justify-self: end;
+}
+
+.about-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.about-team-card {
+  position: relative;
+  border-radius: 18px;
+  background: var(--about-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.about-team-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.28);
+  box-shadow: 0 20px 48px rgba(141, 77, 255, 0.12);
+}
+
+.about-team-photo-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(30, 15, 55, 0.6), rgba(12, 6, 24, 0.9));
+}
+
+.about-team-photo-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(ellipse at center bottom, rgba(139, 92, 246, 0.35), transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.about-team-card:hover .about-team-photo-wrap::after {
+  opacity: 1.4;
+}
+
+.about-team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-team-card:hover .about-team-photo {
+  transform: scale(1.06);
+}
+
+.about-team-body {
+  padding: 20px 20px 22px;
+}
+
+.about-team-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.about-team-role {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #a78bfa;
+  margin-bottom: 10px;
+}
+
+.about-team-bio {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.48);
+  margin-bottom: 14px;
+}
+
+.about-team-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-team-linkedin:hover {
+  background: rgba(0, 119, 181, 0.15);
+  border-color: rgba(0, 119, 181, 0.35);
+  color: #60a5fa;
+  transform: translateY(-2px);
+}
+
+.about-team-linkedin svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ─── About Trust Strip ──────────────────────────────────── */
+.about-page .hero-trust-strip {
+  margin-bottom: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .about-principles-grid,
+  .about-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-orbit-wrap {
+    min-height: 420px;
+    max-height: 460px;
+    margin-top: 24px;
+  }
+
+  .node-about-values {
+    right: 0;
+  }
+
+  .about-team-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-team-header p {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero.hero--about {
+    padding: 128px 20px 56px;
+  }
+
+  .about-principles,
+  .about-team {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about-principles-grid,
+  .about-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-orbit-wrap {
+    min-height: 380px;
+    transform: scale(0.92);
+  }
+
+  .node-about-mission { top: 2%; right: -2%; }
+  .node-about-vision { top: 10%; left: -2%; }
+  .node-about-journey { bottom: 6%; right: -2%; }
+  .node-about-values { bottom: 22%; right: -2%; }
+
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-orbit-ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  .about-values-card {
+    min-width: 140px;
+    padding: 10px 12px;
+  }
+}
