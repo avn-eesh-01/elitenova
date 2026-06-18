@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Mobile Menu Toggle
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll('.nav-link, .nav-cta-mobile');
 
   menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('open');

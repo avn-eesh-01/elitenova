@@ -38,7 +38,7 @@
   .integrations-section .section-title{font-family:Poppins,Inter,system-ui;font-weight:800;font-size:56px;line-height:1.02;margin:0 0 16px;color:#fff}
   .integrations-section .section-subtitle{max-width:900px;margin:0 auto 40px;color:rgba(255,255,255,0.78);font-size:16px}
   .integration-grid{display:flex;flex-wrap:nowrap;gap:28px;justify-content:center;align-items:center;overflow:hidden;padding:32px 8px}
-  .integration-tile{width:84px;height:84px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.45);transition:transform .28s ease,box-shadow .28s}
+  .integration-tile{width:84px;height:84px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.45);transition:transform .28s ease,box-shadow .28s;flex-shrink:0}
   .integration-tile img{width:44px;height:44px;object-fit:contain;border-radius:8px;filter:invert(1) grayscale(100%) brightness(200%)}
   /* Gmail tile should show full color logo */
   .integration-tile.brand-gmail{background:#ffffff}
@@ -90,6 +90,7 @@
             <li><a href="services.html" class="nav-link">Services</a></li>
             <li><a href="about.html" class="nav-link">About Us</a></li>
             <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+            <li class="mobile-only"><a href="#cta" class="nav-cta-mobile">Request a Demo</a></li>
           </ul>
         </div>
         
