@@ -202,34 +202,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const ctaForm = document.getElementById('cta-form');
   const ctaMsg = document.getElementById('cta-msg');
 
-  ctaForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const button = ctaForm.querySelector('button');
-    const input = ctaForm.querySelector('input');
-    
-    // Simulate loading state
-    button.innerText = 'Connecting...';
-    button.style.pointerEvents = 'none';
-    button.style.opacity = '0.7';
-    input.disabled = true;
-
-    setTimeout(() => {
-      // Show success msg
-      button.innerText = 'Call Booked';
-      ctaMsg.classList.add('show');
+  if (ctaForm && ctaMsg) {
+    ctaForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const button = ctaForm.querySelector('button');
+      const input = ctaForm.querySelector('input');
+      if (!button || !input) return;
       
-      // Reset form fields after delay
-      setTimeout(() => {
-        input.value = '';
-        input.disabled = false;
-        button.innerText = 'Book Discovery Call';
-        button.style.pointerEvents = 'auto';
-        button.style.opacity = '1';
-        ctaMsg.classList.remove('show');
-      }, 4000);
+      // Simulate loading state
+      button.innerText = 'Connecting...';
+      button.style.pointerEvents = 'none';
+      button.style.opacity = '0.7';
+      input.disabled = true;
 
-    }, 1200);
-  });
+      setTimeout(() => {
+        // Show success msg
+        button.innerText = 'Call Booked';
+        ctaMsg.classList.add('show');
+        
+        // Reset form fields after delay
+        setTimeout(() => {
+          input.value = '';
+          input.disabled = false;
+          button.innerText = 'Book Discovery Call';
+          button.style.pointerEvents = 'auto';
+          button.style.opacity = '1';
+          ctaMsg.classList.remove('show');
+        }, 4000);
+
+      }, 1200);
+    });
+  }
 
   // 7. Cursor-follow purple glow (stronger + smooth + velocity-based scaling)
   (function initCursorGlow(){

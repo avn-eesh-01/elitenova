@@ -142,7 +142,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         baseUv,
         mouseUv,
         interactive
-      ) * 0.2;
+      ) * 0.58;
     }
   }
 
@@ -160,7 +160,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         baseUv,
         mouseUv,
         interactive
-      );
+      ) * 0.38;
     }
   }
 
@@ -179,7 +179,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         baseUv,
         mouseUv,
         interactive
-      ) * 0.1;
+      ) * 0.25;
     }
   }
 
@@ -205,18 +205,18 @@ const CONFIG = {
     '#FF93E6',
     ],
     enabledWaves: ['top', 'middle', 'bottom'],
-    lineCount: [6, 6, 6],
+    lineCount: [4, 4, 4],
     lineDistance: [5, 5, 5],
     topWavePosition: { x: 10.0, y: 0.5, rotate: -0.4 },
     middleWavePosition: { x: 5.0, y: 0.0, rotate: 0.2 },
     bottomWavePosition: { x: 2.0, y: -0.7, rotate: -1 },
-    animationSpeed: 1,
+    animationSpeed: 0.85,
     interactive: true,
     bendRadius: 1.0,        // Much lower = much wider bend area
-    bendStrength: 0.5,     // Much stronger push/pull effect
+    bendStrength: 0.22,     // Reduced glow density and motion strength
     mouseDamping: 0.05,      // Faster mouse response
     parallax: true,
-    parallaxStrength: 0.2,  // Stronger parallax movement
+    parallaxStrength: 0.12,  // Softer parallax movement
     mixBlendMode: 'normal'  // No luminous effect
 };
 
@@ -289,6 +289,7 @@ class FloatingLines {
             height: 100%;
             z-index: 0;
             overflow: hidden;
+            opacity: 0.88;
             mix-blend-mode: ${CONFIG.mixBlendMode};
         `;
 

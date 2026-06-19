@@ -63,9 +63,9 @@ body{
 }
 
 /* badge card inner styling */
-.badge-card{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,#ffd37a,#ff7eb6);padding:8px 12px;border-radius:10px;color:#11010a;font-weight:800;box-shadow:0 10px 30px rgba(255,110,120,0.08);border:1px solid rgba(255,255,255,0.04)}
-.badge-icon{display:block;flex:0 0 20px;background:linear-gradient(90deg,#ff9f6b,#ff7eb6);padding:4px;border-radius:6px;box-shadow:inset 0 -2px 6px rgba(0,0,0,0.12)}
-.badge-text{font-size:13px;line-height:1}
+.badge-card{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,#ffcf70,#ff7aa8);padding:8px 12px;border-radius:10px;color:#fff;font-weight:800;box-shadow:0 10px 30px rgba(255,110,120,0.12);border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(10px)}
+.badge-icon{display:block;flex:0 0 20px;background:rgba(255,255,255,0.18);padding:4px;border-radius:6px;box-shadow:inset 0 -2px 6px rgba(0,0,0,0.08)}
+.badge-text{font-size:13px;line-height:1;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.22)}
 
 .pricing-grid > .card.popular:nth-child(2) .badge::before{
   /* subtle glow behind the badge to lift it */
@@ -96,6 +96,40 @@ body{
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 .btn.outline{background:transparent;border:1px solid rgba(132,55,191,0.14);color:var(--accent);padding:10px 16px}
 .btn:hover{transform:translateY(-4px)}
+
+.annual-monthly{
+  min-height:22px;
+  margin:-2px 0 12px;
+  color:#e8e7ec;
+  font-size:14px;
+  font-weight:500;
+  opacity:0;
+  transform:translateY(-4px);
+  transition:opacity .22s ease, transform .22s ease;
+}
+
+.annual-monthly-rate{
+  color:var(--accent-2);
+  font-weight:700;
+}
+
+.annual-monthly-strike{
+  color:rgba(255,255,255,0.52);
+  text-decoration:line-through;
+  text-decoration-thickness:1.5px;
+  text-decoration-color:rgba(255,255,255,0.45);
+  margin-right:8px;
+}
+
+.annual-monthly > span:last-child{
+  color:#e8e7ec;
+  font-weight:500;
+}
+
+.annual-monthly.visible{
+  opacity:1;
+  transform:translateY(0);
+}
 
 .features{list-style:none;padding:0;margin:12px 0 18px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
 .features li{position:relative;padding-left:36px}

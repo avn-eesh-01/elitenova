@@ -63,8 +63,9 @@
               <div class="plan-tag">Starter</div>
               <div class="plan-sub">For getting started</div>
             </div>
-            <div class="price">₹2,999 <span class="per">/month</span></div>
+            <div class="price">₹3,999 <span class="per">/month</span></div>
             <a class="btn primary">Get Starter</a>
+            <div class="annual-monthly" aria-live="polite"></div>
             <ul class="features">
               <li>Instagram Automation</li>
               <li>WhatsApp Automation</li>
@@ -94,6 +95,7 @@
             </div>
             <div class="price">₹7,999 <span class="per">/month</span></div>
             <a class="btn primary">Get Premium</a>
+            <div class="annual-monthly" aria-live="polite"></div>
             <ul class="features">
               <li>Instagram Automation</li>
               <li>WhatsApp Automation</li>
@@ -112,12 +114,13 @@
             </div>
             <div class="price">₹17,999 <span class="per">/month</span></div>
             <a class="btn primary">Get Ultra-Premium</a>
+            <div class="annual-monthly" aria-live="polite"></div>
             <ul class="features">
               <li>Everything in Premium</li>
               <li>CRM Integrations</li>
               <li>Zapier / Make Automation</li>
               <li>Priority Support & Optimization Calls</li>
-              <li>Unlimmited Chat Tokens</li>
+              <li>Unlimited Chat Tokens</li>
             </ul>
             <div class="card-foot">Advanced automation for businesses that are ready to scale.</div>
           </div>
@@ -204,6 +207,86 @@
         if(stored === 'annual') setGlobal('annual');
         else setGlobal('monthly');
       }catch(e){ setGlobal('monthly'); }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const cards = Array.from(document.querySelectorAll('.card[data-pricing]'));
+      function formatNumber(n){
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
+      cards.forEach(card => {
+        const data = JSON.parse(card.getAttribute('data-pricing') || '{}');
+        const annualMonthlyEl = card.querySelector('.annual-monthly');
+        const baseSetMonthly = card.setMonthly;
+        const baseSetAnnual = card.setAnnual;
+
+        if(!annualMonthlyEl) return;
+
+        card.setMonthly = () => {
+          if(typeof baseSetMonthly === 'function') baseSetMonthly();
+          annualMonthlyEl.innerHTML = '';
+          annualMonthlyEl.classList.remove('visible');
+        };
+
+        card.setAnnual = () => {
+          if(typeof baseSetAnnual === 'function') baseSetAnnual();
+          annualMonthlyEl.innerHTML = `â‚¹${formatNumber(Math.round((data.annual || 0) / 12))} <span>/month (billed annually)</span>`;
+          annualMonthlyEl.classList.add('visible');
+        };
+      });
+
+      function syncAnnualMonthly(mode){
+        cards.forEach(card => {
+          if(mode === 'annual') card.setAnnual?.();
+          else card.setMonthly?.();
+        });
+      }
+
+      try{
+        const stored = localStorage.getItem('pricingMode');
+        syncAnnualMonthly(stored === 'annual' ? 'annual' : 'monthly');
+      }catch(e){
+        syncAnnualMonthly('monthly');
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const cards = Array.from(document.querySelectorAll('.card[data-pricing]'));
+      const globalToggle = document.getElementById('global-toggle');
+      const gButtons = globalToggle ? Array.from(globalToggle.querySelectorAll('.global-btn')) : [];
+      const rupee = String.fromCharCode(8377);
+
+      function formatNumber(n){
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
+      function renderAnnualMonthly(mode){
+        cards.forEach(card => {
+          const data = JSON.parse(card.getAttribute('data-pricing') || '{}');
+          const annualMonthlyEl = card.querySelector('.annual-monthly');
+          if(!annualMonthlyEl) return;
+
+          if(mode === 'annual'){
+            annualMonthlyEl.innerHTML = `<span class="annual-monthly-strike">${rupee}${formatNumber(data.monthly || 0)}/month</span> <span class="annual-monthly-rate">${rupee}${formatNumber(Math.round((data.annual || 0) / 12))}</span> <span>/month (billed annually)</span>`;
+            annualMonthlyEl.classList.add('visible');
+          } else {
+            annualMonthlyEl.innerHTML = '';
+            annualMonthlyEl.classList.remove('visible');
+          }
+        });
+      }
+
+      gButtons.forEach(btn => btn.addEventListener('click', () => renderAnnualMonthly(btn.dataset.mode)));
+
+      try{
+        const stored = localStorage.getItem('pricingMode');
+        renderAnnualMonthly(stored === 'annual' ? 'annual' : 'monthly');
+      }catch(e){
+        renderAnnualMonthly('monthly');
+      }
     });
   </script>
   
