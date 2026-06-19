@@ -56,9 +56,46 @@
     gsap.from('.hero-trust-strip', { opacity: 0, y: 15, duration: 0.8, delay: 1.1, ease: 'power3.out' });
   }
 
+  function initFaqAccordion() {
+    const faqItems = document.querySelectorAll('.about-faq-item');
+
+    faqItems.forEach((item) => {
+      const btn = item.querySelector('.about-faq-question');
+      const answer = item.querySelector('.about-faq-answer');
+      if (!btn || !answer) return;
+
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // Close all items first
+        faqItems.forEach((other) => {
+          if (other !== item) {
+            other.classList.remove('open');
+            const otherBtn = other.querySelector('.about-faq-question');
+            const otherAnswer = other.querySelector('.about-faq-answer');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+            if (otherAnswer) otherAnswer.style.maxHeight = '0';
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          item.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          answer.style.maxHeight = '0';
+        } else {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initReveal();
     initCardGlow();
     initHeroAnimations();
+    initFaqAccordion();
   });
 })();
