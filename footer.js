@@ -44,7 +44,7 @@
           <ul class="site-footer-links">
             <li><a href="about.html">About Elitenova</a></li>
             <li><a href="about.html#principles">Our Mission</a></li>
-            <li><a href="index.html#features">FAQs</a></li>
+            <li><a href="index.html#faq">FAQs</a></li>
             <li><a href="index.html#cta">Contact Us</a></li>
           </ul>
         </div>

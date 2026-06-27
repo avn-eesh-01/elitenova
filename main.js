@@ -57,7 +57,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  // 5. Interactive Terminal Simulator
+  // 5. FAQ Accordion
+  const faqItems = document.querySelectorAll('.about-faq-item');
+  faqItems.forEach((item) => {
+    const button = item.querySelector('.about-faq-question');
+    const answer = item.querySelector('.about-faq-answer');
+    if (!button || !answer) return;
+
+    button.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      faqItems.forEach((other) => {
+        if (other === item) return;
+        other.classList.remove('open');
+
+        const otherButton = other.querySelector('.about-faq-question');
+        const otherAnswer = other.querySelector('.about-faq-answer');
+        if (otherButton) otherButton.setAttribute('aria-expanded', 'false');
+        if (otherAnswer) otherAnswer.style.maxHeight = '0';
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = '0';
+      } else {
+        item.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = `${answer.scrollHeight}px`;
+      }
+    });
+  });
+
+  // 6. Interactive Terminal Simulator
   const consoleOutput = document.getElementById('console-output');
   const consoleForm = document.getElementById('console-form');
   const consoleInput = document.getElementById('console-input');
@@ -198,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     consoleInput.focus();
   });
 
-  // 6. Lead Capture Form Submission (CTA)
+  // 7. Lead Capture Form Submission (CTA)
   const ctaForm = document.getElementById('cta-form');
   const ctaMsg = document.getElementById('cta-msg');
 
@@ -234,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Cursor-follow purple glow (stronger + smooth + velocity-based scaling)
+  // 8. Cursor-follow purple glow (stronger + smooth + velocity-based scaling)
   (function initCursorGlow(){
     const glow = document.createElement('div');
     glow.id = 'cursor-glow';
