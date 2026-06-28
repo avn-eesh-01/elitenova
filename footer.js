@@ -63,8 +63,8 @@
       <div class="site-footer-bottom">
         <p class="site-footer-copy">ELITENOVA AI &mdash; Intelligent AI Automation &copy; 2026</p>
         <div class="site-footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
         </div>
       </div>
     </div>
