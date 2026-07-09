@@ -2608,10 +2608,14 @@ footer:not(.site-footer) {
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.about-faq-icon .material-symbols-outlined {
-  font-size: 20px;
-  color: #c4b5fd;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease;
+.about-faq-plus {
+  width: 18px;
+  height: 18px;
+  stroke: #c4b5fd;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  fill: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.35s ease;
 }
 
 .about-faq-item:hover .about-faq-icon {
@@ -2625,9 +2629,9 @@ footer:not(.site-footer) {
   box-shadow: 0 0 16px rgba(139, 92, 246, 0.2);
 }
 
-.about-faq-item.open .about-faq-icon .material-symbols-outlined {
+.about-faq-item.open .about-faq-plus {
   transform: rotate(45deg);
-  color: #ddd6fe;
+  stroke: #ddd6fe;
 }
 
 .about-faq-answer {
@@ -2694,8 +2698,9 @@ footer:not(.site-footer) {
     height: 32px;
   }
 
-  .about-faq-icon .material-symbols-outlined {
-    font-size: 18px;
+  .about-faq-plus {
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -2746,8 +2751,9 @@ footer:not(.site-footer) {
     height: 30px;
   }
 
-  .about-faq-icon .material-symbols-outlined {
-    font-size: 16px;
+  .about-faq-plus {
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -2784,8 +2790,9 @@ footer:not(.site-footer) {
     height: 28px;
   }
 
-  .about-faq-icon .material-symbols-outlined {
-    font-size: 15px;
+  .about-faq-plus {
+    width: 14px;
+    height: 14px;
   }
 }
 

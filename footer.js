@@ -50,7 +50,7 @@
           <ul class="site-footer-links">
             <li><a href="${basePath}about/">About Elitenova</a></li>
             <li><a href="${basePath}about/#principles">Our Mission</a></li>
-            <li><a href="${basePath}index.html#faq">FAQs</a></li>
+            <li><a href="${basePath}pricing/#faq">FAQs</a></li>
             <li><a href="${basePath}index.html#cta">Contact Us</a></li>
           </ul>
         </div>
