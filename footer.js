@@ -1,11 +1,17 @@
 (function () {
+  const isNestedPage = /\/(?:about|services|pricing|privacy-policy|terms-of-service)(?:\/index\.html)?$/i.test(
+    window.location.pathname.replace(/\\/g, '/')
+  );
+  const basePath = isNestedPage ? '../' : './';
+  const assetPath = `${basePath}assets/ELITENOVA-LOGO.jpeg`;
+
   const FOOTER_HTML = `
 <footer class="site-footer" aria-label="Site footer">
   <div class="site-footer-wrap">
     <div class="site-footer-card">
       <div class="site-footer-top">
-        <a href="index.html" class="site-footer-brand">
-          <img src="./assets/ELITENOVA-LOGO.jpeg" alt="Elitenova logo" class="site-footer-logo">
+        <a href="${basePath}index.html" class="site-footer-brand">
+          <img src="${assetPath}" alt="Elitenova logo" class="site-footer-logo">
           <span class="site-footer-brand-text">
             <strong>ELITENOVA AI</strong>
             <small>Intelligent AI Automation for Modern Businesses</small>
@@ -31,10 +37,10 @@
         <div class="site-footer-col">
           <h3 class="site-footer-col-title">Explore</h3>
           <ul class="site-footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="${basePath}index.html">Home</a></li>
+            <li><a href="${basePath}services/">Services</a></li>
             <li>
-              <a href="pricing.html">Pricing</a>
+              <a href="${basePath}pricing/">Pricing</a>
               <span class="site-footer-badge">NEW</span>
             </li>
           </ul>
@@ -42,10 +48,10 @@
         <div class="site-footer-col">
           <h3 class="site-footer-col-title">Company</h3>
           <ul class="site-footer-links">
-            <li><a href="about.html">About Elitenova</a></li>
-            <li><a href="about.html#principles">Our Mission</a></li>
-            <li><a href="index.html#faq">FAQs</a></li>
-            <li><a href="index.html#cta">Contact Us</a></li>
+            <li><a href="${basePath}about/">About Elitenova</a></li>
+            <li><a href="${basePath}about/#principles">Our Mission</a></li>
+            <li><a href="${basePath}index.html#faq">FAQs</a></li>
+            <li><a href="${basePath}index.html#cta">Contact Us</a></li>
           </ul>
         </div>
         <div class="site-footer-col">
@@ -63,8 +69,8 @@
       <div class="site-footer-bottom">
         <p class="site-footer-copy">ELITENOVA AI &mdash; Intelligent AI Automation &copy; 2026</p>
         <div class="site-footer-legal">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="${basePath}privacy-policy/">Privacy Policy</a>
+          <a href="${basePath}terms-of-service/">Terms of Service</a>
         </div>
       </div>
     </div>
